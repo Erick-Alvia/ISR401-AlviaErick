@@ -1,0 +1,487 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% --- PAQUETES DE CONFIGURACIÓN (PLANTILLA ORIGINAL) ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\graphicspath{{Figuras/}{Evidencias/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{longtable} % Tabla de 20 enunciados entre páginas.
+
+% Configuración de hipervínculos (estilo original).
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    pdftitle={FORM-TL-01 - Identificación y clasificación de tipos de requisitos},
+    pdfpagemode=FullScreen,
+}
+
+% Encabezados y pies de página (diseño original).
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\footnotesize Ingeniería de Requerimientos (ISR-401) | FORM-TL-01}
+\lhead{\footnotesize UTEQ - Ingeniería de Software}
+\cfoot{\thepage}
+\setlength{\headheight}{15pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+
+\begin{document}
+
+% ==============================================================================
+% PORTADA INSTITUCIONAL UTEQ
+% ==============================================================================
+\begin{titlepage}
+    \centering
+
+    {\bfseries\Large UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO \par}
+    \vspace{0.2cm}
+    {\bfseries\large FACULTAD DE CIENCIAS DE LA COMPUTACIÓN \par}
+    {\bfseries\large CARRERA DE INGENIERÍA DE SOFTWARE \par}
+    \vspace{0.4cm}
+
+    \rule{\linewidth}{0.5mm} \\[0.3cm]
+    {\huge\bfseries ACTIVIDAD FORMATIVA FORM-TL-01 \par}
+    \vspace{0.2cm}
+    {\large\bfseries Taller: identificación y clasificación de tipos de requisitos \par}
+    \rule{\linewidth}{0.5mm} \\[0.6cm]
+
+    \begin{minipage}{0.48\textwidth}
+        \begin{flushleft} \large
+            \textbf{Asignatura:} Ingeniería de Requerimientos (ISR-401)\\
+            \textbf{Estudiante:} Alvia Villegas Erick Adalberto\\
+            \textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD\\
+            \textbf{Modalidad:} Individual, formativa
+        \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+        \begin{flushright} \large
+            \textbf{Fecha límite:} 31/10/2026\\
+            \textbf{Nivel:} 4.º nivel, paralelo A\\
+            \textbf{Caso:} Citas médicas\\
+            \textbf{Carácter:} Sin calificación
+        \end{flushright}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    % Sustituir por la URL REAL del repositorio FORM-TL-01.
+    \fcolorbox{black}{gray!15}{
+        \parbox{0.95\linewidth}{
+            \centering
+            \vspace{0.15cm}
+            \textbf{URL del Repositorio Git Público:}\\
+            \texttt{https://github.com/Erick-Alvia/ISR401-AlviaErick}\\
+            \vspace{0.15cm}
+        }
+    }
+
+    \vspace{0.5cm}
+
+    {\large\bfseries Caso de estudio: Plataforma de gestión de citas médicas\par}
+    \vspace{0.2cm}
+    {\normalsize Policlínico Ribera del Quevedo
+    (organización ficticia del caso docente)\par}
+
+    % Se eliminaron las capturas y cuadros de relleno del trabajo antiguo.
+
+    \vfill
+    {\small Quevedo - Los Ríos - Ecuador \par}
+    {\small 2026 \par}
+\end{titlepage}
+
+\newpage
+
+% ==============================================================================
+% DESARROLLO DE FORM-TL-01
+% ==============================================================================
+
+\section*{Caso práctico: Plataforma de gestión de citas médicas}
+
+\textbf{Propósito.} Clasificar los veinte enunciados del Policlínico Ribera del Quevedo por naturaleza, orientación y ámbito; justificar cada decisión; identificar defectos en la calidad de su redacción; y reformular cinco requisitos de calidad con métricas verificables, conforme a las indicaciones de la guía FORM-TL-01 \cite{guia,iso29148}.
+
+\textbf{Contexto.} El policlínico cuenta con 24 médicos, 9 especialidades, 18 consultorios, aproximadamente 12\,000 pacientes registrados y unas 450 citas diarias. El 35\,\% de los pacientes supera los 60 años. La plataforma prevista incluye web, aplicación móvil, quiosco, notificaciones e integración con facturación. En horas pico se esperan alrededor de 300 usuarios concurrentes.
+
+\textbf{Alcance excluido.} No se desarrollarán historias clínicas electrónicas, telemedicina, farmacia, laboratorio ni emisión de facturas: esta última permanece en el sistema externo existente.
+
+\subsection*{1. Criterios de clasificación empleados}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Naturaleza:} funcional (comportamiento observable), calidad (atributo del producto evaluable) o restricción (límite técnico, normativo u organizativo).
+    \item \textbf{Orientación:} producto (qué debe ofrecer o cumplir la solución) o proceso (cómo debe desarrollarse y controlarse el proyecto).
+    \item \textbf{Ámbito:} software (la aplicación y su lógica), sistema (incluye hardware, servicios externos u operación) o no aplica (restricción exclusiva del proyecto, no del sistema entregado).
+\end{itemize}
+
+La clasificación representa la interpretación \textbf{principal} de cada enunciado. Cuando una regla admite otra lectura, se explica el criterio adoptado en la discusión. Las características de calidad se corresponden con ISO/IEC 25010:2023 \cite{iso25010}.
+
+% ==============================================================================
+% CLASIFICACIÓN E01-E20
+% ==============================================================================
+
+\subsection*{2. Clasificación y justificación de los veinte enunciados}
+
+\small
+\renewcommand{\arraystretch}{1.17}
+
+\begin{longtable}{|p{0.72cm}|p{6.85cm}|p{2.00cm}|p{1.65cm}|p{1.75cm}|}
+\caption{Clasificación de los enunciados E01--E20 del caso médico.}
+\label{tab:enunciados}\\
+\hline
+\textbf{ID} & \textbf{Enunciado y justificación} & \textbf{Tipo} & \textbf{Orient.} & \textbf{Ámbito}\\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \textbf{Enunciado y justificación (continuación)} & \textbf{Tipo} & \textbf{Orient.} & \textbf{Ámbito}\\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\textbf{E01} &
+El paciente podrá reservar una cita eligiendo especialidad, médico, fecha y hora entre los horarios disponibles.
+\emph{Justificación:} permite ejecutar una operación de reserva mediante la aplicación.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E02} &
+La plataforma enviará al paciente un recordatorio por mensaje de texto 24 horas antes de su cita.
+\emph{Justificación:} describe el envío de un SMS; la entrega depende también de un servicio externo.
+& Funcional & Producto & Sistema\\ \hline
+
+\textbf{E03} &
+La aplicación debe ser rápida.
+\emph{Justificación:} exige desempeño temporal, pero carece de operación, tiempo máximo y carga definidos.
+& Calidad & Producto & Software\\ \hline
+
+\textbf{E04} &
+El recepcionista podrá registrar la llegada del paciente que se acerca a la ventanilla.
+\emph{Justificación:} define una función para actualizar el estado de llegada.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E05} &
+La plataforma se desarrollará en Java 21 con base de datos PostgreSQL, tecnologías que domina el área de TI.
+\emph{Justificación:} restringe las tecnologías de implementación de la solución.
+& Restricción & Producto & Software\\ \hline
+
+\textbf{E06} &
+El médico podrá consultar la lista de pacientes del día y marcar cada consulta como atendida.
+\emph{Justificación:} especifica operaciones visibles en el módulo médico.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E07} &
+Los datos de salud de los pacientes deben estar seguros.
+\emph{Justificación:} se refiere a protección de información sensible sin precisar controles ni atributos.
+& Calidad & Producto & Sistema\\ \hline
+
+\textbf{E08} &
+La aplicación móvil debe funcionar en teléfonos con Android 10 o superior.
+\emph{Justificación:} establece una limitación explícita de plataforma soportada.
+& Restricción & Producto & Software\\ \hline
+
+\textbf{E09} &
+Una cita cancelada con menos de cuatro horas de anticipación se registrará como inasistencia.
+\emph{Justificación:} exige ejecutar un registro automático a partir de una regla del negocio.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E10} &
+La plataforma debe ser fácil de usar para los pacientes adultos mayores.
+\emph{Justificación:} exige interacción inclusiva, aún sin criterios observables de éxito.
+& Calidad & Producto & Sistema\\ \hline
+
+\textbf{E11} &
+El proyecto debe entregarse en un plazo máximo de seis meses.
+\emph{Justificación:} limita el calendario de desarrollo, no la funcionalidad del producto.
+& Restricción & Proceso & No aplica\\ \hline
+
+\textbf{E12} &
+La sesión de un usuario se cerrará automáticamente tras 10 minutos sin actividad.
+\emph{Justificación:} define una respuesta automática observable de la aplicación.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E13} &
+El quiosco de la sala de espera leerá el número de cédula ingresado en su pantalla táctil e imprimirá un ticket con el número de turno.
+\emph{Justificación:} coordina una función de software con periféricos físicos.
+& Funcional & Producto & Sistema\\ \hline
+
+\textbf{E14} &
+La plataforma debe estar siempre disponible.
+\emph{Justificación:} expresa continuidad del servicio sin definir período ni porcentaje de disponibilidad.
+& Calidad & Producto & Sistema\\ \hline
+
+\textbf{E15} &
+El director médico podrá generar un reporte mensual de inasistencias por especialidad.
+\emph{Justificación:} establece una operación de generación de informes.
+& Funcional & Producto & Software\\ \hline
+
+\textbf{E16} &
+Cada incremento se validará con el director médico al final de cada iteración de dos semanas.
+\emph{Justificación:} prescribe una actividad del método de desarrollo.
+& Restricción & Proceso & No aplica\\ \hline
+
+\textbf{E17} &
+El tratamiento de los datos personales de los pacientes debe cumplir la Ley Orgánica de Protección de Datos Personales del Ecuador.
+\emph{Justificación:} impone obligaciones legales al tratamiento de datos por la solución y sus procedimientos.
+& Restricción & Producto & Sistema\\ \hline
+
+\textbf{E18} &
+La plataforma debe integrarse sin problemas con el sistema de facturación actual.
+\emph{Justificación:} exige interoperabilidad con un producto externo, sin criterio de aceptación explícito.
+& Calidad & Producto & Sistema\\ \hline
+
+\textbf{E19} &
+Si el servidor principal falla, la plataforma debe restablecer el servicio en menos de 30 minutos sin perder ninguna cita confirmada.
+\emph{Justificación:} define recuperación ante fallos con límites medibles.
+& Calidad & Producto & Sistema\\ \hline
+
+\textbf{E20} &
+Todo cambio en el código fuente será revisado por otro integrante del equipo antes de integrarse a la rama principal.
+\emph{Justificación:} establece una práctica obligatoria de revisión durante el desarrollo.
+& Restricción & Proceso & No aplica\\ \hline
+
+\end{longtable}
+
+\normalsize
+
+% ==============================================================================
+% CALIDAD ISO 25010
+% ==============================================================================
+
+\subsection*{3. Clasificación de calidad según ISO/IEC 25010:2023}
+
+En los seis enunciados de calidad se identifica una característica y subcaracterística \textbf{principal}. Otras propiedades pueden ser pertinentes, pero no reemplazan la asignación principal \cite{iso25010}.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{ID} & \textbf{Característica} & \textbf{Subcaracterística y fundamento} \\ \hline
+
+E03 & Eficiencia de desempeño &
+Comportamiento temporal: tiempos de respuesta. \\ \hline
+
+E07 & Seguridad &
+Confidencialidad: prevención del acceso no autorizado a datos de salud; integridad también es relevante. \\ \hline
+
+E10 & Capacidad de interacción &
+Inclusividad: facilitar el uso a pacientes adultos mayores; operabilidad es complementaria. \\ \hline
+
+E14 & Fiabilidad &
+Disponibilidad: continuidad del servicio. \\ \hline
+
+E18 & Compatibilidad &
+Interoperabilidad: intercambio correcto de datos con facturación. \\ \hline
+
+E19 & Fiabilidad &
+Recuperabilidad: restauración del servicio y preservación de citas tras un fallo. \\ \hline
+
+\end{tabularx}
+\caption{Correspondencia con ISO/IEC 25010:2023.}
+\end{table}
+
+\textbf{Observación:} E19 ya tiene límites explícitos (restablecimiento inferior a 30 minutos y cero citas confirmadas perdidas). Los cinco enunciados vagos que corresponde reformular son \textbf{E03, E07, E10, E14 y E18}.
+
+% ==============================================================================
+% DEFECTOS DE REDACCIÓN
+% ==============================================================================
+
+\subsection*{4. Detección de deficiencias en la redacción}
+
+Se revisan los enunciados aplicando como criterio la claridad y verificabilidad de los requisitos señaladas en la ingeniería de requisitos \cite{iso29148}.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{ID} & \textbf{Deficiencia identificada} & \textbf{Mejora necesaria} \\ \hline
+
+E03 &
+Ambigüedad y no verificabilidad: «rápida» admite interpretaciones diferentes. &
+Definir operación, carga, tiempo, unidad y percentil. \\ \hline
+
+E07 &
+Ambigüedad y no verificabilidad: «seguros» no especifica confidencialidad, integridad ni condiciones de prueba. &
+Establecer el evento de acceso, el perfil, la métrica y el umbral. \\ \hline
+
+E14 &
+Ambigüedad y no verificabilidad: «siempre disponible» podría interpretarse como disponibilidad absoluta. &
+Indicar un porcentaje y un período de observación. \\ \hline
+
+E18 &
+No verificabilidad: «sin problemas» no define qué constituye una integración correcta. &
+Fijar éxito de operaciones y ausencia de duplicaciones. \\ \hline
+
+\end{tabularx}
+\caption{Defectos identificados y criterio de corrección.}
+\end{table}
+
+No se atribuye \textbf{inconsistencia lógica} entre requisitos sin identificar dos condiciones realmente incompatibles en el caso. Los ejemplos anteriores evidencian defectos de ambigüedad y verificabilidad.
+
+% ==============================================================================
+% CINCO REQUISITOS CUANTIFICADOS
+% ==============================================================================
+
+\subsection*{5. Reformulación cuantificada de cinco requisitos de calidad}
+
+Los valores siguientes son \textbf{umbrales propuestos para el ejercicio}, no compromisos ya aprobados ni resultados de pruebas. Se deben validar con el director médico y el área de TI.
+
+\subsubsection*{RQ-E03. Eficiencia de desempeño: comportamiento temporal}
+
+\textbf{Original:} «La aplicación debe ser rápida».\\
+
+\textbf{Redacción mejorada:} La función de consulta de horarios disponibles deberá responder en \textbf{3 segundos o menos para al menos el 95\,\% de las solicitudes}, durante una prueba de 30 minutos con \textbf{300 usuarios concurrentes} y un volumen de datos representativo del policlínico.\\
+
+\textbf{Métrica:} percentil 95 del tiempo de respuesta; \textbf{unidad:} segundos; \textbf{umbral:} $P_{95}\leq 3$ s.\\
+
+\textbf{Verificación:} registrar tiempos de consulta bajo una carga de 300 usuarios virtuales y documentar infraestructura, red y errores.
+
+\subsubsection*{RQ-E07. Seguridad: confidencialidad}
+
+\textbf{Original:} «Los datos de salud de los pacientes deben estar seguros».\\
+
+\textbf{Redacción mejorada:} La plataforma deberá impedir que usuarios sin permiso obtengan datos de salud de otros pacientes, rechazando \textbf{el 100\,\% de 100 intentos de acceso no autorizado} definidos para los perfiles de paciente, recepcionista y médico.\\
+
+\textbf{Métrica:} porcentaje de intentos no autorizados rechazados; \textbf{unidad:} porcentaje; \textbf{umbral:} 100\,\%.\\
+
+\textbf{Verificación:} pruebas de control de acceso con cuentas y datos ficticios, comprobando códigos de respuesta y ausencia de datos expuestos. Esta prueba no demuestra por sí sola la seguridad completa exigible por la ley \cite{lopdp}.
+
+\subsubsection*{RQ-E10. Capacidad de interacción: inclusividad}
+
+\textbf{Original:} «La plataforma debe ser fácil de usar para los pacientes adultos mayores».\\
+
+\textbf{Redacción mejorada:} En una evaluación supervisada con \textbf{20 personas de 60 años o más} usando teléfonos Android 10 o superior de gama media o baja, al menos \textbf{17 participantes (85\,\%)} deberán completar una reserva de cita de prueba \textbf{sin ayuda y en un máximo de 5 minutos}.\\
+
+\textbf{Métrica:} porcentaje de participantes que completan la tarea en el plazo; \textbf{unidad:} porcentaje y minutos; \textbf{umbrales:} $\geq 85$\,\% y $\leq 5$ min.\\
+
+\textbf{Verificación:} prueba de tareas con participantes reales y datos ficticios; los 20 participantes constituyen una \emph{muestra propuesta}, no un estudio ya efectuado.
+
+\subsubsection*{RQ-E14. Fiabilidad: disponibilidad}
+
+\textbf{Original:} «La plataforma debe estar siempre disponible».\\
+
+\textbf{Redacción mejorada:} Las funciones de consulta de horarios y reserva de citas deberán estar operativas al menos el \textbf{99,9\,\% de los minutos de cada mes}, con el respectivo seguimiento continuo durante las 24 horas del dia, incluidos los períodos de mantenimiento.\\
+
+\textbf{Métrica:} proporción de minutos con ambas operaciones disponibles; \textbf{unidad:} porcentaje mensual; \textbf{umbral:} $\geq 99{,}9$\,\%.\\
+
+\textbf{Verificación:} comprobaciones sintéticas externas cada minuto y cálculo de minutos de servicio correcto sobre minutos observados.
+
+\subsubsection*{RQ-E18. Compatibilidad: interoperabilidad}
+
+\textbf{Original:} «La plataforma debe integrarse sin problemas con el sistema de facturación actual».\\
+
+\textbf{Redacción mejorada:} En el entorno de integración con el servicio web documentado del proveedor, al menos \textbf{198 de 200 solicitudes válidas (99\,\%)} de registro de cobro deberán obtener una confirmación asociada a la transacción correcta; además, \textbf{50 reintentos controlados} no deberán producir \textbf{ningún cobro duplicado}.\\
+
+\textbf{Métricas:} operaciones confirmadas correctamente y cobros duplicados; \textbf{unidades:} porcentaje y cantidad; \textbf{umbrales:} $\geq 99$\,\% y $0$ duplicados.\\
+
+\textbf{Verificación:} pruebas de integración y conciliación con la API de facturación. Antes de aceptar este umbral debe confirmarse que el proveedor facilite un entorno de prueba y un mecanismo para prevenir duplicaciones.
+
+% ==============================================================================
+% COMPARACIÓN CON COMPAÑERO
+% ==============================================================================
+
+\subsection*{6. Discusión y registro de discrepancias}
+
+\textbf{Nota de integridad:} la tabla siguiente recoge \emph{puntos a contrastar}, no afirma que ya haya existido una reunión o que el compañero haya manifestado esas posiciones.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Código} & \textbf{Alternativa que podría discutirse} & \textbf{Criterio técnico propuesto} \\ \hline
+
+E02 &
+Clasificar el SMS solo como software, porque la aplicación ordena enviarlo. &
+Sistema, porque el envío efectivo involucra un servicio externo de mensajería. \\ \hline
+
+E09 &
+Clasificar como restricción de dominio por provenir de una regla del negocio. &
+Funcional, porque el enunciado exige registrar la inasistencia cuando se cumple una condición. \\ \hline
+
+E11, E16 y E20 &
+Atribuirles ámbito «sistema» por ser parte del proyecto. &
+«No aplica» al ámbito sistema/software: son restricciones del proceso de desarrollo. \\ \hline
+
+\end{tabularx}
+\caption{Alternativas de interpretación para preparar el contraste.}
+\end{table}
+
+\textbf{Registro de comparación real (pendiente de completar):}\\
+\textbf{Compañero/a:}  \hfill \textbf{Fecha de discusión:} 
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+\hline
+\textbf{ID} & \textbf{Mi clasificación} & \textbf{Clasificación del compañero} & \textbf{Resolución y argumento acordado} \\ \hline
+
+ &  &  &  \\ \hline
+
+
+\end{tabularx}
+\caption{Registro de discrepancias efectivas: requiere discusión con un compañero.}
+\end{table}
+
+Si no se encuentran diferencias, se debe consignar ese resultado real y explicar qué enunciados se compararon. No deben inventarse actas, participantes ni acuerdos.
+
+% ==============================================================================
+% CONCLUSIONES Y DECLARACIÓN DE IA
+% ==============================================================================
+
+\subsection*{7. Conclusiones}
+
+Se clasificaron correctamente los 20 enunciados del caso dentro de las 3 dimensiones solicitadas. Se logro identificar seis requisitos de calidad: cinco vagos o de poca influencia (E03, E07, E10, E14 y E18) y uno con condiciones cuantificadas desde el origen (E19). Las reformulaciones incorporan operación, métrica, unidad, umbral y procedimiento de verificación, pero sus valores propuestos todavía necesitan revisión por los interesados.
+
+\subsection*{8. Declaración del uso de inteligencia artificial}
+
+\textbf{Herramienta:} ChatGPT, OpenAI (GPT-6).
+\textbf{Propósito:} apoyo en organización del análisis, propuesta de clasificación, mejora de la redacción de los requisitos y adaptación del contenido a la plantilla LaTeX del estudiante.
+\textbf{Verificación:} contraste inicial con los 20 enunciados y la rúbrica aportados por el docente; compilación técnica del documento. La revisión académica personal, la discusión real con un compañero y la publicación del repositorio quedan bajo responsabilidad del estudiante. La asistencia de IA no sustituye la autoría ni la capacidad de explicar el contenido.
+
+% ==============================================================================
+% REFERENCIAS IEEE
+% ==============================================================================
+
+\renewcommand{\refname}{9. Referencias}
+\footnotesize
+\begin{thebibliography}{9}
+
+\bibitem{guia}
+G. C. Guerrero-Ulloa, «FORM-TL-01: Guía y rúbrica de evaluación, taller de tipos de requisitos», y «Descripción del caso: Plataforma de gestión de citas médicas», material docente de ISR-401, Universidad Técnica Estatal de Quevedo, 2026.
+
+\bibitem{pohl}
+K. Pohl, \emph{Requirements Engineering: Fundamentals, Principles, and Techniques}, 2.a ed. Springer, 2025. ISBN: 978-3-662-69204-2.
+
+\bibitem{iso29148}
+ISO/IEC/IEEE, \emph{ISO/IEC/IEEE 29148:2018, Systems and software engineering---Life cycle processes---Requirements engineering}. 2018.
+
+\bibitem{iso25010}
+ISO/IEC, \emph{ISO/IEC 25010:2023, Systems and software engineering---Systems and software Quality Requirements and Evaluation (SQuaRE)---Product quality model}. 2023.
+
+\bibitem{lopdp}
+Asamblea Nacional del Ecuador, «Ley Orgánica de Protección de Datos Personales», Registro Oficial, Quinto Suplemento n.º 459, 26 de mayo de 2021.
+
+\bibitem{acm}
+Association for Computing Machinery, «ACM Code of Ethics and Professional Conduct», 2018. [En línea]. Disponible: \url{https://www.acm.org/code-of-ethics}.
+
+\end{thebibliography}
+\normalsize
+
+\end{document}
