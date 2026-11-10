@@ -11,8 +11,8 @@ El repositorio se encuentra organizado por módulos y tipos de entrega para faci
 ```text
 .
 ├── .github/              <-- Plantillas de issues y flujos de trabajo
-├── TrabajosGrupales/           <-- Trabajos, tareas y prácticas individuales
-├── TrabajosIndividuales/               <-- Proyectos en equipo y entregas mayores
+├── TrabajosGrupales/           <-- Trabajos, tareas y prácticas Grupales
+├── TrabajosIndividuales/               <-- Trabajos, tareas y prácticas Individuales
 └── README.md             <-- Documentación principal del repositorio
 
 ```
