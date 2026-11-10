@@ -11,7 +11,7 @@ El repositorio se encuentra organizado en base a los trabajos individuales que s
 ```text
 .
 ├── .github/              <-- Plantillas de issues y flujos de trabajo
-├── TrabajosGrupales/           <-- Trabajos, tareas y prácticas individuales
+├── GA-PRAC-01 - FORM-AlviaErick/           <-- Trabajos, tareas y prácticas individuales
 ├── TrabajosIndividuales/               <-- Proyectos en equipo y entregas mayores
 └── README.md             <-- Documentación principal del repositorio
 
