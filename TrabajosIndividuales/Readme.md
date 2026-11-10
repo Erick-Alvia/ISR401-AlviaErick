@@ -10,9 +10,9 @@ El repositorio se encuentra organizado en base a los trabajos individuales que s
 
 ```text
 .
-├── GA-PRAC-01 - FORM-AlviaErick/           <-- Trabajos, tareas y prácticas individuales
-├── TA-TAR-01-SUM-ALVIAERICK              <-- Proyectos en equipo y entregas mayores
-└── README.md             <-- Documentación principal del repositorio
+├── GA-PRAC-01 - FORM-AlviaErick/           <-- GESTION DE AULA Y PRACTICA FORMATIVA 01
+├── TA-TAR-01-SUM-ALVIAERICK              <-- TRABAJO AUTONOMO Y TAREA SUMATIVA 01
+└── README.md             <-- Informacion principal del repositorio
 
 ```
 ### Orden de compilación
