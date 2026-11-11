@@ -1,0 +1,620 @@
+
+\documentclass[12pt,a4paper]{article}
+
+\begin{filecontents*}{referencias.bib}
+
+@standard{iso29148,
+ author={{ISO/IEC/IEEE}},
+ title={{ISO/IEC/IEEE 29148:2018, Systems and software engineering --- Life cycle processes --- Requirements engineering}},
+ year={2018},
+ organization={International Organization for Standardization},
+ url={https://www.iso.org/standard/72089.html}
+}
+
+@standard{iso25010,
+ author={{ISO/IEC}},
+ title={{ISO/IEC 25010:2023, Systems and software engineering --- Systems and software Quality Requirements and Evaluation (SQuaRE) --- Product quality model}},
+ year={2023},
+ organization={International Organization for Standardization},
+ url={https://www.iso.org/standard/78176.html}
+}
+
+@book{pohl2025,
+ author={Klaus Pohl},
+ title={Requirements Engineering: Fundamentals, Principles, and Techniques},
+ edition={2},
+ publisher={Springer},
+ address={Berlin, Heidelberg},
+ year={2025},
+ isbn={978-3-662-69204-2},
+ note={ISBN: 978-3-662-69204-2},
+ url={https://link.springer.com/book/9783662692042}
+}
+
+@misc{discordcanales,
+ author={{Discord}},
+ title={Canales de texto y chat de texto en los canales de voz},
+ year={2024},
+ howpublished={Centro de ayuda de Discord},
+ url={https://support.discord.com/hc/es/articles/4412085582359}
+}
+
+@misc{discordroles,
+ author={{Discord}},
+ title={Preguntas frecuentes de c{\'o}mo configurar permisos},
+ year={2026},
+ howpublished={Centro de ayuda de Discord},
+ url={https://support.discord.com/hc/es/articles/206029707}
+}
+
+@misc{discordnotif,
+ author={{Discord}},
+ title={Notifications Settings 101},
+ year={2025},
+ howpublished={Discord Support},
+ url={https://support.discord.com/hc/en-us/articles/215253258}
+}
+
+@misc{discordwebhook,
+ author={{Discord}},
+ title={Webhook Resource},
+ year={2026},
+ howpublished={Discord Developer Documentation},
+ url={https://github.com/discord/discord-api-docs/blob/main/developers/resources/webhook.mdx}
+}
+
+\end{filecontents*}
+
+% =============================================================================
+% PAQUETES Y ESTILO DE LA PLANTILLA ANTERIOR
+% =============================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{microtype}
+
+% Configuración de hipervínculos.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    pdftitle={TA-IND-01 - IEEE 29148 y tipos de requisitos - Discord}
+}
+
+% Encabezados y pies de página.
+\pagestyle{fancy}
+\fancyhf{}
+
+\rhead{
+    \footnotesize
+    Ingeniería de Requerimientos (ISR-401) | TA-IND-01
+}
+
+\lhead{
+    \footnotesize
+    UTEQ - Ingeniería de Software
+}
+
+\cfoot{\thepage}
+
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+
+\setlist[itemize]{
+    leftmargin=*,
+    topsep=2pt,
+    itemsep=1pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    topsep=2pt,
+    itemsep=1pt
+}
+
+\titlespacing*{\section}{0pt}{1.2ex}{0.5ex}
+\titlespacing*{\subsection}{0pt}{0.9ex}{0.4ex}
+
+\newcommand{\sepbox}[1]{
+    \fcolorbox{black}{gray!15}{
+        \parbox{0.95\linewidth}{
+            \centering
+            \vspace{0.12cm}
+            #1
+            \vspace{0.12cm}
+        }
+    }
+}
+
+\begin{document}
+
+% =============================================================================
+% PORTADA INSTITUCIONAL
+% =============================================================================
+
+\begin{titlepage}
+\pagenumbering{gobble}
+\centering
+
+{\bfseries\Large
+UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}
+
+\vspace{0.2cm}
+
+{\bfseries\large
+FACULTAD DE CIENCIAS DE LA COMPUTACIÓN\par}
+
+{\bfseries\large
+CARRERA DE INGENIERÍA DE SOFTWARE\par}
+
+\vspace{0.4cm}
+
+\rule{\linewidth}{0.5mm}\\[0.3cm]
+
+{\huge\bfseries
+TRABAJO INDIVIDUAL TA-IND-01\par}
+
+\vspace{0.2cm}
+
+{\large\bfseries
+IEEE 29148 y tipos de requisitos de un sistema conocido\par}
+
+\rule{\linewidth}{0.5mm}\\[0.6cm]
+
+\begin{minipage}{0.48\textwidth}
+    \begin{flushleft}
+    \large
+
+    \textbf{Asignatura:}
+    Ingeniería de Requerimientos (ISR-401)\\
+
+    \textbf{Estudiante:}
+    Alvia Villegas Erick Adalberto\\
+
+    \textbf{Docente:}
+    Gleiston Cicerón Guerrero Ulloa, PhD\\
+
+    \textbf{Modalidad:}
+    Individual
+
+    \end{flushleft}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+    \begin{flushright}
+    \large
+
+    \textbf{Fecha límite:}
+    07/11/2026\\
+
+    \textbf{Nivel:}
+    4.º, paralelo A\\
+
+    \textbf{Sistema elegido:}
+    Discord\\
+
+    \textbf{Actividad previa:}
+    FORM-TL-01
+
+    \end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\sepbox{
+    \textbf{URL del Repositorio Git Público:}\\
+    \texttt{[SUSTITUIR POR URL REAL DEL REPOSITORIO]}
+}
+
+\vspace{0.6cm}
+
+{\large\bfseries
+Caso de estudio: Discord como plataforma de comunicación\par}
+
+\vfill
+
+{\small Quevedo - Los Ríos - Ecuador\par}
+{\small 2026\par}
+
+\end{titlepage}
+
+\pagenumbering{arabic}
+
+% =============================================================================
+% 1. SISTEMA SELECCIONADO
+% =============================================================================
+
+\section{Sistema seleccionado y delimitación}
+
+\textbf{Discord} es una plataforma de comunicación utilizada para intercambiar mensajes, organizar conversaciones a travez de distintos servidores y canales, participar en llamadas de voz y configurar permisos, notificaciones, etc. En un servidor académico, sus usuarios pueden ser tanto estudiantes como docentes y administradores; en este orden los primeros miembros(Estudiantes y Docentes) consultan canales y colaboran en los mismos, mientras que los administradores moderan espacios y asignan roles en el servidor.
+
+El presente análisis tiene como enfoque al cliente web o de escritorio, canales de texto, administración de permisos y las integraciones mediante webhooks, documentadas públicamente por Discord \cite{discordcanales,discordroles,discordnotif,discordwebhook}.
+
+\textbf{Delimitación metodológica.}
+En esta ocasion se presenta una especificación de propuesta academica para el sistema conocido, no una especificación oficial ni una certificación del funcionamiento actual de Discord. Las características públicamente documentadas respaldan feacientemente la elección de funciones; los umbrales cuantitativos son hipótesis para pruebas futuras academicas y no mediciones realizadas.
+
+Los requisitos de proceso del siguiente informe se formulan para un proyecto academico hipotético de mantenimiento y no se atribuyen al procedimiento interno de la empresa.
+
+% =============================================================================
+% 2. RESUMEN ANALITICO DE LA NORMA
+% =============================================================================
+
+\section{Resumen analítico de ISO/IEC/IEEE 29148:2018}
+
+\subsection{Alcance, conceptos y construcción de requisitos}
+
+La cláusula 1 de ISO/IEC/IEEE 29148:2018 delimita su aplicación a procesos y productos de ingeniería de requisitos durante el ciclo de vida de sistemas, software y servicios.
+
+Esto significa que la norma no se reduce a una plantilla documental: sirve para transformar necesidades en compromisos analizables y verificables. La cláusula 3 fija un vocabulario compartido; sin él, expresiones como \emph{requisito}, \emph{restricción}, \emph{validación} y \emph{verificación} podrían confundirse.
+
+La cláusula 5.2.1 explica que la ingeniería de requisitos establece un entendimiento entre interesados y proporciona una base para verificar la solución \cite{iso29148}.
+
+Desde la experiencia de uso de Discord, observar que existe un canal de texto todavía no constituye una especificación. La observación describe una característica visible; el requisito debe determinar qué entidad realizará una acción, bajo qué condición y cómo se comprobará su cumplimiento.
+
+La cláusula 5.2.3 distingue las necesidades iniciales de las formulaciones depuradas: una inquietud como «quiero organizar mi clase» necesita descomponerse en comportamientos, límites y condiciones antes de convertirse en requisitos revisables.
+
+Esa transformación es particularmente importante cuando administradores y estudiantes esperan resultados diferentes.
+
+La cláusula 5.2.4 aborda la \emph{construcción} de un requisito bien formado. Debe expresar una obligación del sistema o elemento correspondiente, considerar condiciones cuantificables y restricciones pertinentes y permitir demostrar que fue realizado.
+
+Una redacción útil identifica sujeto y verbo de obligación; para este informe se emplea «Discord deberá...».
+
+No debe confundirse una preferencia con una obligación, ni imponer decisiones técnicas innecesarias que pertenezcan al diseño.
+
+Por ejemplo, «Discord será muy rápido» no identifica una operación mensurable; «Discord deberá mostrar una publicación de texto en tres segundos o menos en el percentil 95 de las pruebas definidas» sí establece un criterio evaluable.
+
+Este último umbral es una propuesta, no un resultado observado \cite[cláusula~5.2.4]{iso29148}.
+
+\subsection{Nueve características del requisito individual}
+
+La cláusula 5.2.5 establece \textbf{nueve características}, que se interpretan aquí como preguntas de inspección y no como etiquetas decorativas \cite{iso29148}:
+
+\begin{enumerate}[label=\arabic*.,noitemsep]
+
+\item \textbf{Necesario:}
+¿Su ausencia perjudica una necesidad identificada?
+Restringir la lectura de canales privados protege conversaciones reservadas.
+
+\item \textbf{Apropiado:}
+¿Su detalle corresponde al nivel del sistema?
+No conviene prescribir clases de código para una necesidad funcional.
+
+\item \textbf{No ambiguo:}
+¿Admite una sola interpretación?
+«Rápido» resulta equívoco; un tiempo máximo de respuesta no.
+
+\item \textbf{Completo:}
+¿Contiene el contexto suficiente para entenderlo?
+Debe especificar actor, estímulo y respuesta cuando corresponda.
+
+\item \textbf{Singular:}
+¿Expresa una sola obligación principal?
+Enviar mensajes y modificar roles deben figurar en requisitos distintos.
+
+\item \textbf{Factible:}
+¿Puede realizarse dentro de restricciones y riesgos aceptables?
+Una promesa de disponibilidad absoluta no es realista.
+
+\item \textbf{Verificable:}
+¿Se puede inspeccionar, demostrar o medir?
+Un acceso denegado admite una prueba con perfiles controlados.
+
+\item \textbf{Correcto:}
+¿Representa fielmente la necesidad real?
+Una funcionalidad sofisticada puede ser incorrecta si no resuelve lo solicitado.
+
+\item \textbf{Conforme:}
+¿Respeta la plantilla y convención de redacción acordada?
+Los identificadores y verbos deben emplearse consistentemente.
+
+\end{enumerate}
+
+Estas propiedades interactúan. Una frase puede ser clara, pero no necesaria; otra puede ser necesaria, pero imposible de verificar.
+
+Por esa razón, marcar «cumple» sin explicar los criterios o sin conocer el contexto no constituye una autoevaluación suficiente.
+
+En particular, la corrección y la necesidad deben validarse con interesados reales; este ejercicio solo permite una evaluación preliminar sobre el caso de estudio.
+
+\subsection{Calidad del conjunto y lenguaje controlado}
+
+La cláusula 5.2.6 no repite las nueve propiedades individuales: evalúa el \emph{conjunto} mediante \textbf{completitud, consistencia, factibilidad, comprensibilidad y capacidad de validarse}.
+
+Un catálogo puede contener quince frases excelentes y, aun así, omitir la moderación o presentar dos políticas incompatibles.
+
+Para Discord, la consistencia requiere usar la misma definición de «miembro autorizado» en permisos, seguridad y pruebas.
+
+La completitud se analiza respecto del alcance definido, no de la plataforma entera, que incluye muchas funciones fuera de este trabajo. Las necesidades sin resolver deben identificarse antes de aprobar una línea base \cite[cláusula~5.2.6]{iso29148}.
+
+La cláusula 5.2.7 trata el lenguaje. Conviene evitar \emph{superlativos} («el mejor»), apreciaciones subjetivas («intuitivo»), pronombres sin referente («esto»), adverbios indeterminados («casi siempre»), combinaciones lógicas dudosas («y/o»), expresiones abiertas («entre otros»), comparaciones sin base («más eficaz»), excepciones vagas («si es posible»), absolutos difíciles de probar («siempre») y referencias sin versión.
+
+No significa que cada palabra sea inválida en cualquier texto; el problema es su uso sin límites en una obligación verificable.
+
+La cláusula también diferencia el \emph{qué} del \emph{cómo}: primero se exige la propiedad; el diseño determina después su realización.
+
+Por último, la cláusula 5.2.8 identifica atributos útiles para gestionar requisitos (ID, versión, responsable, prioridad o justificación), diferentes de la obligación expresada \cite{iso29148,pohl2025}.
+
+% =============================================================================
+% 3. GLOSARIO DE DIEZ TERMINOS
+% =============================================================================
+
+\section{Glosario de diez términos de la cláusula 3}
+
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.10}
+
+\begin{longtable}{
+    |p{2.7cm}
+    |p{5.5cm}
+    |p{6.1cm}|
+}
+
+\caption{
+Términos parafraseados de ISO/IEC/IEEE 29148:2018,
+cláusula 3.
+}
+\label{tab:glosario}\\
+
+\hline
+
+\textbf{Término y apartado} &
+\textbf{Definición propia} &
+\textbf{Ejemplo aplicado a Discord}\\
+
+\hline
+\endfirsthead
+
+\hline
+\textbf{Término y apartado} &
+\textbf{Definición propia} &
+\textbf{Ejemplo aplicado a Discord}\\
+\hline
+\endhead
+
+Requisito (3.1.19) &
+Enunciado de una necesidad junto a las condiciones que limitan su satisfacción. &
+Un miembro autorizado deberá publicar un mensaje en un canal de texto.\\
+\hline
+
+Atributo (3.1.2) &
+Propiedad descriptiva que puede distinguirse o evaluarse. &
+Identificador R01 o prioridad de un requisito de mensajería.\\
+\hline
+
+Condición (3.1.6) &
+Circunstancia comprobable que activa o delimita una obligación. &
+El usuario dispone de permiso para enviar mensajes.\\
+\hline
+
+Restricción (3.1.7) &
+Límite impuesto al sistema o al modo de desarrollar la solución. &
+Se propone compatibilidad del cliente web con un navegador especificado.\\
+\hline
+
+Contexto de uso (3.1.8) &
+Combinación de usuarios, tareas, equipos y entorno de utilización. &
+Estudiante conectado desde un portátil a un servidor de su clase.\\
+\hline
+
+Requisito derivado (3.1.10) &
+Obligación obtenida al analizar o descomponer otras necesidades. &
+Del control de acceso se deriva bloquear lectura sin permiso.\\
+\hline
+
+Elicitación (3.1.20) &
+Obtención sistemática de necesidades mediante técnicas de indagación. &
+Entrevistar a moderadores sobre los problemas de permisos.\\
+\hline
+
+Trazabilidad (3.1.23) &
+Relación documentada entre necesidades y requisitos de distintos niveles. &
+Vincular necesidad de privacidad con R03 y R12.\\
+\hline
+
+Validación de requisitos (3.1.25) &
+Examen de si lo especificado representa el sistema deseado por interesados. &
+Confirmar con estudiantes que silenciar canales satisface su necesidad.\\
+\hline
+
+Verificación de requisitos (3.1.26) &
+Revisión de si los enunciados cumplen criterios de buena formulación. &
+Comprobar que R11 declara métrica, condiciones y umbral.\\
+\hline
+
+\end{longtable}
+\endgroup
+
+% =============================================================================
+% 4. QUINCE REQUISITOS DE DISCORD
+% =============================================================================
+
+\section{Quince requisitos propuestos para Discord}
+
+\textbf{Convención.}
+R01--R15 son identificadores únicos. Los tipos corresponden a los ejemplos de atributos de la cláusula 5.2.8.3 de ISO/IEC/IEEE 29148:2018.
+
+Se distinguen función, interfaz, proceso, factor humano, restricción y calidad.
+
+Para R11--R15 se utiliza el modelo de producto de ISO/IEC 25010:2023; la métrica y el umbral constituyen \emph{criterios propuestos} \cite{iso29148,iso25010}.
+
+El análisis se limita a un servidor de pruebas administrado por el evaluador, sin información personal real.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.16}
+
+\begin{longtable}{
+    |p{0.8cm}
+    |p{2.05cm}
+    |p{6.65cm}
+    |p{4.15cm}|
+}
+
+\caption{
+Clasificación y criterios de aceptación de quince requisitos.
+}
+\label{tab:requisitos}\\
+
+\hline
+
+\textbf{ID} &
+\textbf{Tipo / ISO 25010} &
+\textbf{Enunciado corregido (versión 1.1)} &
+\textbf{Métrica y aceptación}\\
+
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} &
+\textbf{Tipo / ISO 25010} &
+\textbf{Enunciado (continuación)} &
+\textbf{Métrica y aceptación}\\
+\hline
+\endhead
+
+R01 &
+Funcional &
+Discord deberá publicar en el canal de texto seleccionado el mensaje enviado por un miembro con permiso de escritura. &
+Una publicación visible en el canal correcto tras un envío de prueba.\\
+\hline
+
+R02 &
+Funcional &
+Discord deberá crear un canal de texto en el servidor cuando un administrador autorizado confirme su nombre. &
+Aparece un canal con ese nombre en la lista del servidor.\\
+\hline
+
+R03 &
+Funcional &
+Discord deberá denegar la lectura de un canal privado a un miembro cuyo rol carezca del permiso \emph{Ver canal}. &
+En 10 intentos del usuario de prueba, 10 accesos denegados.\\
+\hline
+
+R04 &
+Funcional &
+Discord deberá aplicar al canal seleccionado la opción de notificaciones \emph{Nada} elegida por un miembro. &
+Tras guardar la opción, el canal muestra el ajuste seleccionado.\\
+\hline
+
+R05 &
+Interfaz externa &
+El cliente web de Discord deberá solicitar al navegador autorización de micrófono antes de capturar audio en un canal de voz. &
+Si el permiso es denegado, no se recibe audio desde el micrófono en la sesión de prueba.\\
+\hline
+
+R06 &
+Interfaz externa &
+La interfaz \emph{webhook} de Discord deberá recibir una solicitud HTTP POST válida dirigida al \emph{webhook} configurado de un canal de prueba. &
+Una petición válida produce una confirmación HTTP y el mensaje aparece en el canal.\\
+\hline
+
+R07 &
+Proceso (propuesto) &
+El equipo hipotético de mantenimiento deberá registrar una revisión de permisos para cada cambio que modifique el acceso a canales. &
+Un registro identificable de revisión por cambio aprobado.\\
+\hline
+
+R08 &
+Proceso (propuesto) &
+El equipo hipotético de mantenimiento deberá asociar un identificador de requisito a cada solicitud de cambio aprobada. &
+Las cinco solicitudes de la muestra tienen un ID vinculado.\\
+\hline
+
+R09 &
+Factores humanos &
+Discord deberá mostrar un indicador visual del estado del micrófono cuando el usuario active la opción \emph{Silenciar}. &
+El indicador cambia en \(\leq 2\) s en 10 de 10 activaciones.\\
+\hline
+
+R10 &
+Restricción &
+El cliente web de Discord deberá operar en Google Chrome 120 sobre Windows 11 para las funciones R01--R04. &
+Los cuatro casos de prueba se ejecutan sin error en ese entorno.\\
+\hline
+
+R11 &
+Calidad: eficiencia de desempeño / comportamiento temporal &
+Discord deberá mostrar los mensajes enviados en un canal de texto con un tiempo de respuesta de \(\leq3\) s en el percentil 95, bajo 50 usuarios de prueba concurrentes. &
+\(P_{95}\leq3\) s; registrar 200 tiempos de respuesta de extremo a extremo.\\
+\hline
+
+R12 &
+Calidad: seguridad / confidencialidad &
+Discord deberá impedir la lectura de mensajes de un canal privado por usuarios de prueba sin el permiso \emph{Ver canal}. &
+100 de 100 intentos de lectura no autorizados bloqueados.\\
+\hline
+
+R13 &
+Calidad: fiabilidad / disponibilidad &
+Discord deberá mantener accesible la consulta de canales de texto durante, al menos, el 99,9\,\% de los minutos de un período continuo de 30 días. &
+Disponibilidad \(\geq99{,}9\)\,\%, medida con una comprobación por minuto.\\
+\hline
+
+R14 &
+Calidad: capacidad de interacción / operabilidad &
+Discord deberá permitir que usuarios con experiencia básica cambien la notificación de un canal a \emph{Nada} en \(\leq2\) min sin asistencia. &
+18 de 20 participantes completan la tarea en el tiempo previsto.\\
+\hline
+
+R15 &
+Calidad: compatibilidad / interoperabilidad &
+Discord deberá publicar en el canal de prueba mensajes suministrados por una integración externa mediante solicitudes HTTP POST válidas a su \emph{webhook}. &
+Al menos 198 de 200 solicitudes generan la publicación esperada (\(\geq99\)\,\%).\\
+\hline
+
+\end{longtable}
+\endgroup
+
+\textbf{Distinción relevante:}
+R03 plantea la función de denegación y R12 cuantifica la cobertura de controles de confidencialidad; R06 establece la interfaz y R15 mide su interoperabilidad.
+
+No son duplicados textuales: poseen distintas responsabilidades de prueba.
+
+Los requisitos R07 y R08 no pueden corroborarse desde una cuenta de Discord y por ello solo serían exigibles en un proyecto real con acceso a los registros de desarrollo.
+
+% =============================================================================
+% 5. CAPTURAS PROPIAS DEL SISTEMA
+% =============================================================================
+
+
+% =============================================================================
+% 6. AUTOEVALUACION DE LOS QUINCE REQUISITOS
+% =============================================================================
+
+
+% =============================================================================
+% 7. REFLEXION CRITICA
+% =============================================================================
+
+
+
+% =============================================================================
+% DECLARACION DEL USO DE INTELIGENCIA ARTIFICIAL
+% =============================================================================
+
+
+% =============================================================================
+% REFERENCIAS BIBLIOGRAFICAS - FORMATO IEEE
+% =============================================================================
+
+\bibliographystyle{IEEEtran}
+\bibliography{referencias}
+
+\end{document}
