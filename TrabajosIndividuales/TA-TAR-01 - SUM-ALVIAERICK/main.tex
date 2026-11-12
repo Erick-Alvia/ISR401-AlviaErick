@@ -1,6 +1,11 @@
 
 \documentclass[12pt,a4paper]{article}
 
+
+% =============================================================================
+% BIBLIOGRAFIA IEEE: Generacion automatica de referencias.bib
+% =============================================================================
+
 \begin{filecontents*}{referencias.bib}
 
 @standard{iso29148,
@@ -73,7 +78,7 @@
 \usepackage[spanish,es-tabla]{babel}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
-\graphicspath{{figuras/}}
+\graphicspath{{Figuras/}}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{tabularx}
@@ -86,7 +91,6 @@
 \usepackage{longtable}
 \usepackage{microtype}
 
-% Configuración de hipervínculos.
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -95,7 +99,6 @@
     pdftitle={TA-IND-01 - IEEE 29148 y tipos de requisitos - Discord}
 }
 
-% Encabezados y pies de página.
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -200,7 +203,7 @@ IEEE 29148 y tipos de requisitos de un sistema conocido\par}
     \large
 
     \textbf{Fecha límite:}
-    07/11/2026\\
+    11/11/2026\\
 
     \textbf{Nivel:}
     4.º, paralelo A\\
@@ -218,7 +221,7 @@ IEEE 29148 y tipos de requisitos de un sistema conocido\par}
 
 \sepbox{
     \textbf{URL del Repositorio Git Público:}\\
-    \texttt{[SUSTITUIR POR URL REAL DEL REPOSITORIO]}
+    \texttt{https://github.com/Erick-Alvia/ISR401-AlviaErick}
 }
 
 \vspace{0.6cm}
@@ -260,15 +263,15 @@ Los requisitos de proceso del siguiente informe se formulan para un proyecto aca
 
 La cláusula 1 de ISO/IEC/IEEE 29148:2018 delimita su aplicación a procesos y productos de ingeniería de requisitos durante el ciclo de vida de sistemas, software y servicios.
 
-Esto significa que la norma no se reduce a una plantilla documental: sirve para transformar necesidades en compromisos analizables y verificables. La cláusula 3 fija un vocabulario compartido; sin él, expresiones como \emph{requisito}, \emph{restricción}, \emph{validación} y \emph{verificación} podrían confundirse.
+Esto nos indica de forma directa que la norma no se reduce a una plantilla documental sino que sirve para transformar necesidades en compromisos analizables y verificables. En la cláusula 3 se  fija un vocabulario compartido; en donde sin él, expresiones como \textbf{requisito}, \textbf{restricción}, \textbf{validación} y \textbf{verificación} podrían llegar a confundirse.
 
-La cláusula 5.2.1 explica que la ingeniería de requisitos establece un entendimiento entre interesados y proporciona una base para verificar la solución \cite{iso29148}.
+La cláusula 5.2.1 explica que la ingeniería de requisitos establece un entendimiento entre interesados, y proporciona una base para verificar la solución \cite{iso29148}.
 
-Desde la experiencia de uso de Discord, observar que existe un canal de texto todavía no constituye una especificación. La observación describe una característica visible; el requisito debe determinar qué entidad realizará una acción, bajo qué condición y cómo se comprobará su cumplimiento.
+Desde la experiencia de uso de Discord, observar que existe un canal de texto todavía no constituye una especificación del sistema. La observación describe una característica visible; en la que el requisito debe determinar qué entidad realizará una acción, bajo qué condición y cómo se comprobará su cumplimiento.
 
-La cláusula 5.2.3 distingue las necesidades iniciales de las formulaciones depuradas: una inquietud como «quiero organizar mi clase» necesita descomponerse en comportamientos, límites y condiciones antes de convertirse en requisitos revisables.
+La cláusula 5.2.3 distingue las necesidades iniciales de las formulaciones depuradas: una inquietud como «quiero organizar mi clase» necesita descomponerse en comportamientos, límites y condiciones antes de convertirse en requisitos revisables ya que estas deben de constar de una definición, análisis, y posiblemente de coherencia, y viabilidad.
 
-Esa transformación es particularmente importante cuando administradores y estudiantes esperan resultados diferentes.
+Esa transformación es particularmente importante cuando administradores y estudiantes esperan resultados diferentes. 
 
 La cláusula 5.2.4 aborda la \emph{construcción} de un requisito bien formado. Debe expresar una obligación del sistema o elemento correspondiente, considerar condiciones cuantificables y restricciones pertinentes y permitir demostrar que fue realizado.
 
@@ -593,22 +596,353 @@ Los requisitos R07 y R08 no pueden corroborarse desde una cuenta de Discord y po
 % 5. CAPTURAS PROPIAS DEL SISTEMA
 % =============================================================================
 
+\section{Evidencia visual del sistema}
+
+Las siguientes figuras deben reemplazarse con \textbf{capturas propias}, obtenidas en un servidor de prueba.
+
+Antes de publicarlas se deben ocultar nombres, identificadores, conversaciones y otros datos de terceros.
+
+Las capturas documentan opciones de interfaz; no constituyen resultados de pruebas de carga ni de disponibilidad.
+
+% CAPTURA 1: CANALES DE TEXTO
+
+\begin{figure}[H]
+\centering
+
+\IfFileExists{figuras/Canal_Texto_Discord_chat.png}{
+    \includegraphics[
+        width=8.80\linewidth,
+        height=4.0cm,
+        keepaspectratio
+    ]{Canal_Texto_Discord_chat.png}
+}{
+    \fbox{
+        \parbox[c][6.5cm][c]{.72\linewidth}{
+            \centering \includegraphics[width=4.95\linewidth, height=6.2cm, keepaspectratio]{Figuras/Canal_Texto_Discord_chat.png}        
+        }
+    }
+}
+
+\caption{
+Servidor de prueba y canales de texto. Apoya R01 y R02.
+}
+\label{fig:canales}
+
+\end{figure}
+
+% CAPTURA 2: PERMISOS DE ROLES Y CANALES
+
+\begin{figure}[H]
+\centering
+
+\IfFileExists{Figuras/discord_permisos.png}{
+    \includegraphics[
+        width=.80\linewidth,
+        height=4.0cm,
+        keepaspectratio
+    ]{discord_permisos.png}
+}{
+    \fbox{
+        \parbox[c][6.5cm][c]{.72\linewidth}{
+            \centering \includegraphics[width=4.95\linewidth, height=6.2cm, keepaspectratio]{Figuras/Permisos_Roles.png} 
+        }
+    }
+}
+
+\caption{
+Configuración de permisos. Apoya el contexto de R03 y R12.
+}
+\label{fig:permisos}
+
+\end{figure}
+
+% CAPTURA 3: CONFIGURACION DE NOTIFICACIONES
+
+\begin{figure}[H]
+\centering
+
+\IfFileExists{figuras/discord_notificaciones.png}{
+    \includegraphics[
+        width=.80\linewidth,
+        height=4.0cm,
+        keepaspectratio
+    ]{discord_notificaciones.png}
+}{
+    \fbox{
+        \parbox[c][6.5cm][c]{.72\linewidth}{
+            \centering \includegraphics[width=4.95\linewidth, height=6.2cm, keepaspectratio]{Figuras/Notificacion_Discord_nada.png} 
+        }
+    }
+}
+
+\caption{
+Preferencias de notificaciones. Apoya R04 y R14.
+}
+\label{fig:notificaciones}
+
+\end{figure}
 
 % =============================================================================
 % 6. AUTOEVALUACION DE LOS QUINCE REQUISITOS
 % =============================================================================
 
+\section{Autoevaluación de R01--R15 y correcciones}
+
+Se aplicó una inspección \textbf{de redacción}, no una prueba funcional de Discord.
+
+La lista de control sigue las nueve características de la cláusula 5.2.5:
+
+\textbf{N}ecesario,
+\textbf{A}propiado,
+no ambiguo (\textbf{U}),
+\textbf{C}ompleto,
+\textbf{S}ingular,
+\textbf{F}actible,
+\textbf{V}erificable,
+co\textbf{R}recto y
+\textbf{Co}nforme.
+
+También se inspeccionaron expresiones vagas de 5.2.7 \cite{iso29148}.
+
+\textbf{Regla de autoevaluación:}
+la marca \textbf{P} expresa conformidad \emph{preliminar de redacción}; la marca \textbf{?} indica que la propiedad requiere confirmación de interesados o pruebas reales.
+
+No se simula aprobación de Discord ni ejecución de ensayos.
+
+La matriz permite revisar individualmente los quince enunciados corregidos.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
+
+\begin{table}[H]
+\centering
+
+\caption{
+Autoevaluación de nueve propiedades después de la corrección.
+}
+\label{tab:autoeval}
+
+\begin{tabular}{|l|*{9}{c|}}
+\hline
+
+ID & N & A & U & C & S & F & V & R & Co\\
+\hline
+
+R01&P&P&P&P&P&?&P&?&P\\
+\hline
+R02&P&P&P&P&P&?&P&?&P\\
+\hline
+R03&P&P&P&P&P&?&P&?&P\\
+\hline
+R04&P&P&P&P&P&?&P&?&P\\
+\hline
+R05&P&P&P&P&P&?&P&?&P\\
+\hline
+R06&P&P&P&P&P&?&P&?&P\\
+\hline
+R07&?&P&P&P&P&?&P&?&P\\
+\hline
+R08&?&P&P&P&P&?&P&?&P\\
+\hline
+R09&P&P&P&P&P&?&P&?&P\\
+\hline
+R10&?&P&P&P&P&?&P&?&P\\
+\hline
+R11&P&P&P&P&P&?&P&?&P\\
+\hline
+R12&P&P&P&P&P&?&P&?&P\\
+\hline
+R13&P&P&P&P&P&?&P&?&P\\
+\hline
+R14&P&P&P&P&P&?&P&?&P\\
+\hline
+R15&P&P&P&P&P&?&P&?&P\\
+\hline
+
+\end{tabular}
+\end{table}
+\endgroup
+
+La tabla siguiente conserva \textbf{las versiones anteriores} y una \textbf{versión corregida abreviada}; las formulaciones corregidas completas están en la tabla~\ref{tab:requisitos} y conservan el mismo ID.
+
+Esta correspondencia permite revisar los cambios sin duplicar páginas completas.
+
+\begingroup
+\footnotesize
+\renewcommand{\arraystretch}{1.05}
+
+\begin{longtable}{
+    |p{0.75cm}
+    |p{4.85cm}
+    |p{5.8cm}
+    |p{2.3cm}|
+}
+
+\caption{
+Reescritura individual y defecto eliminado.
+}
+\label{tab:correccion}\\
+
+\hline
+
+\textbf{ID} &
+\textbf{Versión inicial (v1.0)} &
+\textbf{Versión corregida (v1.1, síntesis)} &
+\textbf{Defecto inicial}\\
+
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} &
+\textbf{Versión inicial} &
+\textbf{Versión corregida, síntesis} &
+\textbf{Defecto}\\
+\hline
+\endhead
+
+R01 &
+Discord debe enviar mensajes bien. &
+Discord deberá publicar el mensaje en el canal seleccionado por miembro autorizado. &
+Subjetividad.\\
+\hline
+
+R02 &
+Se podrán crear canales y roles. &
+Discord deberá crear un canal de texto con nombre indicado por administrador autorizado. &
+No singular.\\
+\hline
+
+R03 &
+Discord no debe mostrar información privada. &
+Discord deberá denegar la lectura del canal a quien carezca de \emph{Ver canal}. &
+Alcance impreciso.\\
+\hline
+
+R04 &
+Se podrán gestionar las notificaciones. &
+Discord deberá aplicar la opción \emph{Nada} al canal elegido. &
+Verbo vago.\\
+\hline
+
+R05 &
+Discord utilizará el micrófono correctamente. &
+El cliente web solicitará permiso de micrófono antes de capturar audio. &
+Falta condición.\\
+\hline
+
+R06 &
+Discord se integrará fácilmente. &
+La interfaz \emph{webhook} recibirá HTTP POST válido en el canal configurado. &
+Interfaz indefinida.\\
+\hline
+
+R07 &
+El equipo hará revisiones frecuentes. &
+Cada cambio de acceso a canales tendrá una revisión registrada. &
+Frecuencia ambigua.\\
+\hline
+
+R08 &
+Todos los cambios serán documentados. &
+Cada solicitud aprobada contendrá un ID de requisito asociado. &
+Totalidad indefinida.\\
+\hline
+
+R09 &
+El micrófono debe ser intuitivo. &
+Discord mostrará el indicador de silencio en \(\leq2\) s. &
+Subjetividad.\\
+\hline
+
+R10 &
+Discord funcionará en cualquier navegador. &
+El cliente web ejecutará R01--R04 en Chrome 120 y Windows 11. &
+Absoluto irreal.\\
+\hline
+
+R11 &
+Los mensajes deben aparecer rápido. &
+\(P_{95}\leq3\) s para 200 mensajes bajo 50 usuarios de prueba. &
+Sin métrica.\\
+\hline
+
+R12 &
+Discord debe ser seguro. &
+Bloqueará 100/100 lecturas sin permiso en canal privado. &
+Seguridad inespecífica.\\
+\hline
+
+R13 &
+Discord siempre estará disponible. &
+Disponibilidad de consulta \(\geq99{,}9\)\,\% durante 30 días. &
+Absoluto.\\
+\hline
+
+R14 &
+Discord será fácil de usar. &
+18/20 usuarios cambiarán notificación en \(\leq2\) min sin ayuda. &
+Subjetividad.\\
+\hline
+
+R15 &
+La integración funcionará sin problemas. &
+198/200 solicitudes HTTP válidas publicarán mensaje esperado. &
+No verificable.\\
+\hline
+
+\end{longtable}
+\endgroup
+
+\textbf{Limitaciones de la revisión:}
+no puede darse por demostrada la factibilidad de los umbrales R11--R15 sin infraestructura, participantes y resultados; tampoco se puede asegurar la corrección definitiva sin entrevistar a interesados.
+
+La norma diferencia verificar la \emph{formulación} de los requisitos (3.1.26) y comprobar después el \emph{producto} implementado (3.1.37).
 
 % =============================================================================
 % 7. REFLEXION CRITICA
 % =============================================================================
 
+\section{Reflexión crítica}
 
+El grupo que presenta mayor dificultad es el de calidad: es sencillo observar una función como crear un canal, pero mucho más complicado precisar cuál sería un tiempo de respuesta aceptable o qué nivel de disponibilidad necesita un servidor académico.
+
+La primera redacción tiende a utilizar palabras como «rápido», «seguro» y «fácil», que no aportan condiciones suficientes para decidir si un ensayo ha sido satisfactorio.
+
+Convertir estas frases en percentiles, porcentajes y cantidades permite formular pruebas, aunque no justifica por sí mismo que los valores sean alcanzables o correspondan a necesidades reales.
+
+También existe una diferencia entre describir Discord tal como se utiliza y escribir requisitos para una evolución hipotética.
+
+El estudiante puede aportar capturas de canales y permisos, pero no acceder a las decisiones internas sobre el proceso de desarrollo, ni garantizar las métricas de un servicio que no administra.
+
+Por ello, R07 y R08 se presentan como propuestas, y R11--R15 como objetivos sin validar.
+
+El aprendizaje principal es que redactar una obligación comprobable no equivale a demostrar su cumplimiento.
+
+Antes de aprobar estos requisitos como línea base sería necesario consultar a usuarios y administradores, medir escenarios representativos y revisar su coherencia como conjunto.
+
+Esta separación entre observación, especificación y evidencia evita afirmar más de lo que permite el análisis realizado.
 
 % =============================================================================
 % DECLARACION DEL USO DE INTELIGENCIA ARTIFICIAL
 % =============================================================================
 
+\vspace{2.2cm}
+\section*{Declaración del uso de inteligencia artificial}
+
+\textbf{Herramienta:}
+ChatGPT, OpenAI (GPT-6), Gemini.
+
+\textbf{Propósito:}
+contrastar apartados de normas, proponer formulaciones, corregir faltas ortograficas y apoyo para adaptacion a LaTeX.
+
+\textbf{Verificación:}
+Contraste documental inicial con la guía practica, las cláusulas citadas de ISO/IEC/IEEE 29148:2018 y fuentes públicas.
+
+\textbf{Pendiente del estudiante:}
+Lectura personal de la norma institucional, reescritura, validacion y valoración crítica del texto, analisis tecnico en la elicitacion de requisitos, capturas reales, comprobación de citas y métricas, y validación de la elección de Discord en el foro.
 
 % =============================================================================
 % REFERENCIAS BIBLIOGRAFICAS - FORMATO IEEE
