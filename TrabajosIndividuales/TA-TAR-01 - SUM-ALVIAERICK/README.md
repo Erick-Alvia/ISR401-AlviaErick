@@ -46,11 +46,15 @@ El documento fue desarrollado en **LaTeX** y compilado mediante **pdfLaTeX** por
 Ejecutar en la terminal del computador (se recomienda tener instalado MikTex):
 dentro del terminal colocar el siguiente comando cd "Ruta donde se encuentra su archivo en el explorador"; 
 
-ej: `cd "C:\Users\GAMEMAX\OneDrive\Documentos\00_Git\Prueba"`
+ej: `cd "C:\Users\GAMEMAX\OneDrive\Documentos\00_Git\ISR401-AlviaErick\TrabajosIndividuales\TA-TAR-01 - SUM-ALVIAERICK"`
 
 luego colocar el siguiente comando: 
 
 `pdflatex main.tex`
+
+despues de completar la primera carga use el siguiente comando para la generacion de referencias bibliograficas:
+
+`bibtex main`
 
 Volver a ejecutar permite actualizar correctamente la numeración, referencias internas y demás elementos generados por LaTeX:
 
@@ -79,16 +83,14 @@ El documento utiliza los siguientes paquetes de LaTeX:
 ## Estructura del repositorio
 
 ```text
-SGCV-IA-Practica-U4/
+TA-TAR-01-SUM-ALVIAERICK/
 ├── main.tex
-├── Prueba_Corte_IV__Ingenieria_de_requerimientos_AlviaErick.pdf
+├── Tarea_IR_ALVIAERICK.pdf
 ├── README.md
 ├── Figuras/
-│   ├── Class_Diagram.png
-│   ├── Activity_DIagram.png
-│   └── Machine_State.png
-└── Evidencias/
-    ├── Resumen_Cuestionario.png
-    └── Revision_Intento.png
+    ├── Canal_Texto_Discord_chat.png
+    ├── discord_permisos.png
+    └── discord_notificaciones.png
+
 
 
