@@ -56,6 +56,8 @@ despues de completar la primera carga use el siguiente comando para la generacio
 
 `bibtex main`
 
+vuelva a ejecutar `bibtex main` para corrección de errores de referencias y prosiga
+
 Volver a ejecutar permite actualizar correctamente la numeración, referencias internas y demás elementos generados por LaTeX:
 
 `pdflatex main.tex`
