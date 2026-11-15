@@ -79,13 +79,13 @@ El documento utiliza los siguientes paquetes de LaTeX:
 ```text
 GA-SUM-01/
 ├── main.tex
-├── Tarea_IR_ALVIAERICK.pdf
+├── GA_PE_U___SUM_ALVIA_CHALACAN_PDF (1).pdf
+├── DiagramaConceptual.drawio
 ├── README.md
 ├── Evidencia_Interfacez/
 ├── Figuras/
     ├── DiagramaConceptual.jpeg
     ├── DiagramaContextual.jpeg
-    ├── DiagramaConceptual.drawio
     └── Evidencia_mendeley.jpeg
 
 
