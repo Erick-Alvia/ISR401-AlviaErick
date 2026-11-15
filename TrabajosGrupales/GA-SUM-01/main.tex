@@ -138,7 +138,7 @@
 
 \begin{tabularx}{0.94\linewidth}{@{}lX@{}}
 \textbf{Asignatura:} & Ingeniería de Requerimientos (ISR-401)\\
-\textbf{Integrantes:} & ALCÍVAR VÉLEZ ANDERSON ADONIS\\
+\textbf{Integrantes:}
  & ALVIA VILLEGAS ERICK ADALBERTO\\
  & CHALACÁN TOALÁ YERAI DAVID\\
 \textbf{Docente:} & Gleiston Cicerón Guerrero Ulloa\\
@@ -155,19 +155,19 @@
 % ==================== 00_organizacion ====================
 \section{Sección 0. Identificación y organización del PFC}
 \subsection{Conformación del equipo y responsabilidades}
-El equipo está formado por tres estudiantes. Para cubrir las cinco funciones indicadas en la consigna, se asignan responsabilidades dobles cuando corresponde. La distribución constituye una \emph{propuesta de organización interna}: su aceptación definitiva debe constar en la coordinación del equipo.
+El equipo está formado por 2 estudiantes. Para cubrir las cinco funciones indicadas en la Guia practica, se asignaran responsabilidades dobles cada que corresponda. La distribución constituye una \emph{propuesta de organización interna}: su aceptación definitiva fue acordada y posteriormente aceptada dentro de la coordinación del equipo.
 \begin{table}[H]\centering\small
 \caption{Distribución propuesta de funciones para tres integrantes.}\label{tab:roles}
 \begin{tabularx}{\linewidth}{@{}p{4.4cm}p{3cm}X@{}}\toprule
 \textbf{Integrante} & \textbf{Función principal} & \textbf{Función complementaria y tareas}\\\midrule
-Alcívar Vélez Anderson Adonis & Analista líder & Investigador C: integra las secciones 2.5--2.6; verifica cobertura de subtemas, citas y consistencia general.\\
-Alvia Villegas Erick Adalberto & Investigador A & Documentador: desarrolla 2.1--2.2; organiza IEEE, portada, índice, tablas y fuentes LaTeX.\\
-Chalacán Toalá Yerai David & Investigador B & Revisión cruzada: desarrolla 2.3--2.4 y verifica ejemplos y criterios de aceptación junto al analista líder.\\\bottomrule
+Chalacán Toalá Yerai David & Analista líder & Investigador C: integra las secciones 2.5--2.6; verifica cobertura de subtemas, citas y consistencia general.\\
+Alvia Villegas Erick Adalberto & Investigador A/InvestigadorB & Documentador: desarrolla 2.1--2.4; organiza IEEE, portada, índice, tablas y fuentes LaTeX, verifica ejemplos y criterios de aceptación junto al analista líder..\\
+\bottomrule
 \end{tabularx}
 \end{table}
-La participación se debe acreditar mediante cambios identificables en el repositorio y revisión cruzada, sin atribuir entrevistas, pruebas o acuerdos no efectuados.
+La participación se debe acreditar mediante cambios identificables en el repositorio y/o revisión cruzada, sin atribuir entrevistas, pruebas o acuerdos no efectuados.
 \subsection{Descripción del sistema (menos de 150 palabras)}
-\textbf{MEDICLAB UTEQ} es un prototipo de sistema de información para apoyar las actividades administrativas y operativas de un laboratorio clínico. Sus interfaces muestran la gestión de pacientes y médicos, áreas de laboratorio, exámenes y parámetros referenciales, además de órdenes médicas, consulta de resultados, administración de usuarios y generación de reportes. La solución busca reunir en una misma aplicación tareas que, al gestionarse de forma separada, pueden ocasionar duplicación de registros, dificultades de consulta y errores de transcripción. Sus usuarios previstos incluyen personal de recepción, laboratorio, médicos, responsables de administración y supervisión del centro. La evidencia disponible corresponde a capturas de interfaz: estas permiten reconocer opciones de trabajo, pero no acreditar la implementación, eficacia o seguridad de cada operación.
+\textbf{MEDICLAB UTEQ} es un prototipo de sistema de gestion y información para apoyar las actividades administrativas y operativas de un laboratorio clínico. Sus interfaces se enfocara en mostrar la gestión de pacientes y médicos, áreas de laboratorio, exámenes y parámetros referenciales, además de órdenes médicas, consulta de resultados, administración de usuarios y generación de reportes. La solución busca reunir en una misma aplicación tareas que, al gestionarse de forma separada y manual, pueden ocasionar duplicación de registros, dificultades de consulta y errores de transcripción. Sus usuarios previstos incluyen personal de recepción, laboratorio, médicos, responsables de administración y supervisión del centro medico. La evidencia disponible corresponde a capturas de interfaz: estas permiten reconocer opciones de trabajo, pero cabe recalcar que no acredita la implementación, eficacia o seguridad de cada operación.
 \subsection{Clasificación del tipo de sistema}
 El PFC se considera principalmente un \textbf{sistema de información transaccional especializado en laboratorio clínico}, porque registra y consulta entidades operativas: pacientes, áreas, exámenes, órdenes y resultados. También presenta funciones de información gerencial mediante reportes. La interfaz tiene características de una aplicación de escritorio; no se puede deducir de las capturas el framework, el lenguaje de programación, el DBMS ni la topología de despliegue. Por ello, se descarta atribuirle una arquitectura cliente--servidor específica sin inspección del proyecto fuente. La tipología sigue las distinciones de sistemas y contexto de Pohl \cite{pohl2025}.
 \subsection{Cinco stakeholders principales: perfiles simulados}
@@ -201,51 +201,53 @@ Reportes & Vista previa de informe estructural con parámetros. & Auditoría, va
 
 
 % ==================== 01_fundamento ====================
-\clearpage
+
 \section{Fundamento teórico aplicado al PFC}
 \nota{La consigna asigna los apartados 2.1--2.6 entre investigadores, pero no proporciona sus títulos concretos. Se adopta aquí una estructura de seis subtemas coherentes con ISO/IEC/IEEE 29148:2018, Pohl (2025) y SWEBOK v4.0; el equipo debe compararla con el capítulo indicado por el docente. Las definiciones son síntesis y no citas textuales.}
 
+\clearpage
+
 \subsection{Necesidad, requisito y especificación (2.1)}
-\textbf{Definición fundamentada.} Un requisito representa una condición o capacidad que un sistema debe satisfacer para responder a una necesidad de una parte interesada. La especificación establece un registro organizado de dichas condiciones para orientar diseño, construcción y evaluación; ISO/IEC/IEEE 29148:2018 desarrolla los procesos y productos de ingeniería de requisitos \cite{iso29148}.
+\textbf Un requisito representa una condición o capacidad que un sistema debe satisfacer para responder a una necesidad de una parte interesada. La especificación establece un registro organizado de dichas condiciones para orientar diseño, construcción y evaluación; ISO/IEC/IEEE 29148:2018 desarrolla los procesos y productos de ingeniería de requisitos \cite{iso29148}.
 
-\textbf{Explicación propia.} La diferencia principal es que la necesidad describe una dificultad del entorno y el requisito transforma esa preocupación en una obligación comprobable. La frase «el laboratorio necesita ordenar mejor sus solicitudes» puede guiar una conversación, pero todavía no explica qué datos deben conservarse. Una formulación como «el sistema deberá vincular cada orden a un paciente y a un médico seleccionado» restringe el resultado esperado y puede evaluarse con registros de prueba.
+\textbfLa La diferencia principal radica en que la necesidad describe una dificultad directa del entorno y el requisito transforma esa preocupación en una obligación valida y comprobable. La frase "el laboratorio necesita ordenar mejor sus solicitudes" es verdad que puede guiar una conversación, pero todavía no explica qué datos deben conservarse especificamente. Una formulación como "el sistema deberá vincular cada orden a un paciente y a un médico seleccionado" restringe el resultado esperado y puede evaluarse con registros de prueba.
 
-\textbf{Ejemplo MEDICLAB.} La pantalla Nueva orden contiene campos para paciente, médico y examen, además de una lista de exámenes. Se deriva un candidato que prohíba guardar una orden sin estas asociaciones. No se afirma que la validación ya esté programada; debe probarse.
+\textbf{Ejemplo.} La pantalla Nueva orden contiene campos para paciente, médico y examen, además de una lista de exámenes. Se deriva un candidato que prohíba guardar una orden sin estas asociaciones. No se afirma que la validación ya esté programada; debe probarse.
 
 \subsection{Stakeholders, fuentes y elicitación (2.2)}
-\textbf{Definición fundamentada.} La elicitación reúne e interpreta necesidades de interesados a partir de personas, documentos, sistemas existentes y otras fuentes del dominio; la actividad debe complementarse con negociación y comprobación de lo obtenido \cite{pohl2025,swebok2024}.
+\textbf La elicitación reúne e interpreta necesidades de interesados a partir de personas, documentos, sistemas existentes y otras fuentes del dominio; la actividad debe complementarse con negociación y comprobación de lo obtenido \cite{pohl2025,swebok2024}.
 
-\textbf{Explicación propia.} Una captura de pantalla es evidencia de la existencia de controles, no evidencia de la motivación original de cada usuario. La persona de recepción puede priorizar búsquedas rápidas y el técnico de laboratorio la exactitud de parámetros, por lo que sus expectativas podrían entrar en tensión. La identificación de fuentes permite separar observaciones directas, hipótesis y decisiones, reduciendo el riesgo de convertir intuiciones en requisitos falsamente aprobados.
+\textbf Una captura de pantalla es evidencia de la existencia de controles, pero no evidencia de la motivación original de cada usuario. La persona de recepción puede priorizar búsquedas rápidas y por otro lado el técnico de laboratorio busca la exactitud de parámetros, por lo que sus expectativas podrían entrar en conflicto. La identificación de fuentes permite separar observaciones directas, hipótesis y decisiones, reduciendo el riesgo de convertir intuiciones en requisitos falsamente aprobados.
 
-\textbf{Ejemplo MEDICLAB.} En la vista Gestión de pacientes aparecen filtros por cédula, ciudad y teléfono. Una entrevista futura con un recepcionista podría verificar si la cédula es un identificador preferente, si la búsqueda debe aceptar coincidencias parciales y qué sucede ante registros duplicados. Por ahora, solo se confirma la presencia visual de esos filtros.
+\textbf{Ejemplo.} En la vista Gestión de pacientes aparecen filtros por cédula, ciudad y teléfono. Una entrevista futura con un recepcionista podría verificar si la cédula es un identificador preferente, si la búsqueda debe aceptar coincidencias parciales y qué sucede ante registros duplicados. Por ahora, solo se confirma la presencia visual de esos filtros.
 
 \subsection{Construcción y calidad de un requisito (2.3)}
-\textbf{Definición fundamentada.} ISO/IEC/IEEE 29148:2018 distingue la construcción de un requisito bien formado y las propiedades que permiten inspeccionarlo: necesidad, corrección, singularidad, ausencia de ambigüedad, verificabilidad y otras características relacionadas \cite{iso29148}. EARS proporciona patrones controlados de lenguaje natural, útiles para formular obligaciones sin imponer un diseño innecesario \cite{mavin2009}.
+\textbf ISO/IEC/IEEE 29148:2018 distingue la construcción de un requisito bien formado y las propiedades que permiten inspeccionarlo: necesidad, corrección, singularidad, ausencia de ambigüedad, verificabilidad y otras características relacionadas \cite{iso29148}. EARS proporciona patrones controlados de lenguaje natural, útiles para formular obligaciones sin imponer un diseño innecesario \cite{mavin2009}.
 
-\textbf{Explicación propia.} La redacción comienza identificando quién debe hacer qué y bajo cuál condición. Un requisito medible necesita un criterio que permita decidir si se cumplió, mientras que «el sistema será seguro» solo expresa un deseo general. La formulación debe describir el comportamiento observable y reservar decisiones de interfaz o tecnología cuando no estén justificadas por una restricción real.
+\textbf La redacción comienza identificando quién debe hacer qué y bajo cuál condición. Un requisito medible necesita un criterio que permita decidir si se cumplió, mientras que "el sistema será seguro" solo expresa un deseo general. La formulación debe describir el comportamiento observable y reservar decisiones de interfaz o tecnología cuando no estén justificadas por una restricción real.
 
-\textbf{Ejemplo MEDICLAB.} \emph{Ante el intento de guardar una orden sin médico asignado, MEDICLAB deberá rechazar la operación e informar el campo obligatorio ausente}. El evento y la respuesta son independientes de cómo se haya programado el formulario. La prueba consiste en dejar vacío el campo médico y observar si se conserva o no la orden.
+\textbf{Ejemplo.} \emph{Ante el intento de guardar una orden sin médico asignado, MEDICLAB deberá rechazar la operación e informar el campo obligatorio ausente}. El evento y la respuesta son independientes de cómo se haya programado el formulario. La prueba consiste en dejar vacío el campo médico y observar si se conserva o no la orden.
 
 \subsection{Tipos y niveles de requisitos (2.4)}
-\textbf{Definición fundamentada.} Las necesidades de negocio, las de las partes interesadas y las expectativas de los usuarios pueden conducir a requisitos del sistema y del software. Entre estos se distinguen comportamientos funcionales, propiedades de calidad, interfaces, desempeño, restricciones y condiciones de conformidad; las taxonomías son instrumentos de análisis, no categorías totalmente excluyentes \cite{iso29148,pohl2025}.
+\textbf Las necesidades de negocio, las de las partes interesadas y las expectativas de los usuarios pueden conducir a requisitos del sistema y del software. Entre estos se distinguen comportamientos funcionales, propiedades de calidad, interfaces, desempeño, restricciones y condiciones de conformidad; las taxonomías son instrumentos de análisis, no categorías totalmente excluyentes \cite{iso29148,pohl2025}.
 
-\textbf{Explicación propia.} El requisito de negocio explica el valor perseguido, mientras que el funcional especifica el servicio necesario. Un requisito de calidad limita cómo debe comportarse una función, por ejemplo durante una búsqueda. Las restricciones, en cambio, delimitan decisiones permitidas, tales como políticas legales o condiciones de acceso, sin describir necesariamente una nueva función visible.
+\textbf El requisito de negocio explica el valor perseguido, mientras que el funcional especifica el servicio necesario. Un requisito de calidad limita cómo debe comportarse una función, por ejemplo durante una búsqueda. Las restricciones, en cambio, delimitan decisiones permitidas, tales como políticas legales o condiciones de acceso, sin describir necesariamente una nueva función visible.
 
-\textbf{Ejemplo MEDICLAB.} Como objetivo de negocio se propone disminuir errores de asociación entre órdenes y pacientes; la función asociada obliga a guardar el identificador del paciente. El requisito de calidad exigiría que la consulta de una orden tarde como máximo tres segundos bajo una carga definida. La restricción legal exige tratamiento responsable de datos personales y de salud conforme a la regulación aplicable \cite{lopdp2021}.
+\textbf{Ejemplo.} Como objetivo de negocio se propone disminuir errores de asociación entre órdenes y pacientes; la función asociada obliga a guardar el identificador del paciente. El requisito de calidad exigiría que la consulta de una orden tarde como máximo tres segundos bajo una carga definida. La restricción legal exige tratamiento responsable de datos personales y de salud conforme a la regulación aplicable \cite{lopdp2021}.
 
 \subsection{Contexto, límites y tipo de sistema (2.5)}
-\textbf{Definición fundamentada.} El contexto de ingeniería de requisitos reúne los objetos del entorno que afectan el sistema o reciben efectos de él. Distinguir límite del sistema, contexto relevante y alcance de desarrollo evita asignar a la solución responsabilidades de actores o servicios externos \cite{pohl2025}.
+\textbf El contexto de ingeniería de requisitos reúne los objetos del entorno que afectan el sistema o reciben efectos de él. Distinguir límite del sistema, contexto relevante y alcance de desarrollo evita asignar a la solución responsabilidades de actores o servicios externos \cite{pohl2025}.
 
-\textbf{Explicación propia.} El laboratorio es una organización con procesos humanos; MEDICLAB es una herramienta dentro de ese proceso y no sustituye el juicio del profesional clínico. Aunque la pantalla contiene rangos de referencia, no existe evidencia para atribuirle la interpretación diagnóstica automática. La frontera debe revisarse cuando se identifiquen periféricos, sistemas hospitalarios o un DBMS real, ya que las imágenes no prueban esas integraciones.
+\textbf El laboratorio es una organización con procesos humanos; MEDICLAB es una herramienta dentro de ese proceso y no sustituye el juicio del profesional clínico. Aunque la pantalla contiene rangos de referencia, no existe evidencia para atribuirle la interpretación diagnóstica automática. La frontera debe revisarse cuando se identifiquen periféricos, sistemas hospitalarios o un DBMS real, ya que las imágenes no prueban esas integraciones.
 
-\textbf{Ejemplo MEDICLAB.} Se incluye la creación de pacientes y órdenes; se excluyen la toma física de muestras, las pruebas biológicas, los diagnósticos y la decisión clínica. La opción de impresión sugiere una relación con el servicio de impresión del equipo, pero su protocolo concreto permanece pendiente de análisis técnico.
+\textbf{Ejemplo.} Se incluye la creación de pacientes y órdenes; se excluyen la toma física de muestras, las pruebas biológicas, los diagnósticos y la decisión clínica. La opción de impresión sugiere una relación con el servicio de impresión del equipo, pero su protocolo concreto permanece pendiente de análisis técnico.
 
 \subsection{Validación, trazabilidad y gestión del cambio (2.6)}
-\textbf{Definición fundamentada.} La verificación examina si los artefactos cumplen condiciones especificadas; la validación comprueba si responden a las necesidades de los interesados. La trazabilidad enlaza necesidades, requisitos, diseños, pruebas y modificaciones, permitiendo evaluar el efecto de cambiar una decisión \cite{iso29148,swebok2024}.
+\textbf La verificación examina si los artefactos cumplen condiciones especificadas; la validación comprueba si responden a las necesidades de los interesados. La trazabilidad enlaza necesidades, requisitos, diseños, pruebas y modificaciones, permitiendo evaluar el efecto de cambiar una decisión \cite{iso29148,swebok2024}.
 
-\textbf{Explicación propia.} Si se modifica la política de anulación de órdenes, puede cambiar el estado almacenado y el contenido de los reportes. Una matriz con identificadores permite localizar qué escenarios dependen de esa regla y qué pruebas deben repetirse. Por otro lado, una pantalla correcta visualmente no demuestra que los usuarios la acepten o que los datos se conserven sin errores; para ello hacen falta pruebas y revisión con interesados.
+\textbf Si se modifica la política de anulación de órdenes, puede cambiar el estado almacenado y el contenido de los reportes. Una matriz con identificadores permite localizar qué escenarios dependen de esa regla y qué pruebas deben repetirse. Por otro lado, una pantalla correcta visualmente no demuestra que los usuarios la acepten o que los datos se conserven sin errores; para ello hacen falta pruebas y revisión con interesados.
 
-\textbf{Ejemplo MEDICLAB.} Se establece un vínculo entre la necesidad de evitar órdenes incompletas, el requisito RF-06 y una prueba que intenta guardar sin examen seleccionado. La cadena se presenta como plan de validación, no como resultado de prueba ya realizada.
+\textbf{Ejemplo.} Se establece un vínculo entre la necesidad de evitar órdenes incompletas, el requisito RF-06 y una prueba que intenta guardar sin examen seleccionado. La cadena se presenta como plan de validación, no como resultado de prueba ya realizada.
 
 \subsection{Síntesis crítica de las seis nociones}
 \begin{table}[H]\centering\small
@@ -263,7 +265,7 @@ Validación / cambio & Matriz de trazabilidad y pruebas: ¿cómo se comprobará 
 
 
 % ==================== 02_requisitos ====================
-\clearpage
+
 \section{Tabla de tipos de requisitos aplicados a MEDICLAB}
 \subsection{Convenciones de redacción y priorización}
 Se establecen identificadores persistentes con prefijos \texttt{BN} (negocio), \texttt{ST} (stakeholder), \texttt{US} (usuario), \texttt{RF} (funcional), \texttt{IF} (interfaz), \texttt{RD} (rendimiento), \texttt{NQ} (calidad), \texttt{CT} (restricción) y \texttt{CP} (conformidad). La forma «\emph{cuando} ocurre [evento], MEDICLAB \emph{deberá} [respuesta]» se inspira en la redacción controlada EARS \cite{mavin2009} y en las propiedades de requisitos de ISO/IEC/IEEE 29148:2018 \cite{iso29148}. Las prioridades MoSCoW son asignaciones preliminares del equipo y \textbf{no representan un acuerdo con stakeholders reales}.
@@ -380,7 +382,7 @@ CT-01 & Dominio de exámenes (supuesto) & RF-04, RF-06 & Asociación inválida\\
 CP-01 & Ley ecuatoriana & NQ-01 & Evaluación de cumplimiento\\\bottomrule
 \end{longtable}\endgroup
 
-La matriz aporta trazabilidad conceptual, pero no prueba que las funcionalidades funcionen. Para una línea base real deben añadirse propietario del requisito, versión, fecha de aprobación, registro del stakeholder que lo valida y resultado de ejecución de casos de prueba.
+La matriz aporta trazabilidad conceptual, pero no prueba que las funcionalidades funcionen. Para una línea base real deben añadirse el propietario del requisito, versión, fecha de aprobación, registro del stakeholder que lo valida y el resultado de ejecución de casos de prueba.
 
 
 % ==================== 03_contexto ====================
@@ -409,7 +411,6 @@ El sistema de interés es la \textbf{aplicación MEDICLAB UTEQ} y su comportamie
 \caption{Diagrama preliminar de contexto y entidades externas. La línea de impresión es una interfaz por validar.}\label{fig:contexto}
 \end{figure}
 
-\vspace{3.0cm}
 
 La Figura~\ref{fig:contexto} representa a cinco perfiles humanos y un posible servicio de impresión. Las personas aparecen como entidades externas al software, aun cuando actúen sobre la interfaz. Se utiliza un modelo de frontera funcional, no una arquitectura física de componentes.
 
@@ -457,7 +458,7 @@ Datos reservados & Identificaciones, correos y teléfonos de pacientes/usuarios 
 
 
 % ==================== 04_perspectivas ====================
-\clearpage
+
 \section{Ocho perspectivas de contexto aplicadas a MEDICLAB}
 Las ocho perspectivas se toman de la estructura del capítulo 15 de Pohl (2025): \emph{uso, dominio, sistemas de TI, desarrollo, negocio, innovación, sociedad y técnica} \cite{pohl2025}. Cada perspectiva propone tres preguntas de elicitación y dos candidatos adicionales de requisito o restricción. \textbf{Estos dieciséis candidatos de descubrimiento} no se incorporan automáticamente a los veinte requisitos de la tabla~\ref{tab:catalogo}: representan decisiones aún pendientes y requieren acuerdo con interesados.
 
@@ -619,18 +620,16 @@ El mapa utiliza cuatro ejes: (1) fundamentos, (2) tipos y clasificación, (3) co
 
 
 % ==================== 05_conclusiones ====================
-\clearpage
-\section{Conclusiones y control de entrega}
-Las tres conclusiones se ofrecen como \textbf{textos de trabajo para revisión de cada integrante}, no como declaraciones ya aprobadas ni firmadas por ellos. Antes de publicar la versión final, cada estudiante debe revisarlas, ajustarlas con su criterio y poder defender la evidencia que emplea.
 
-\subsection{Conclusión propuesta para Alcívar Vélez Anderson Adonis}
+\section{Conclusiones y control de entrega}
+Las dos conclusiones se ofrecen como \textbf{textos de trabajo para revisión de cada integrante}, no como declaraciones ya aprobadas ni firmadas por ellos. Antes de publicar la versión final, cada estudiante debe revisarlas, ajustarlas con su criterio y poder defender la evidencia que emplea.
+
+\subsection{Conclusión propuesta para Chalacán Toalá Yerai David}
 \textbf{Afirmación.} El análisis de MEDICLAB evidencia que definir el alcance del sistema es indispensable para diferenciar una función informática de una responsabilidad clínica. \textbf{Evidencia.} Las capturas revelan módulos para pacientes, exámenes, órdenes, resultados y reportes; sin embargo, no prueban que la aplicación interprete diagnósticos ni que esté conectada con dispositivos de laboratorio. Esta distinción coincide con la importancia que Pohl atribuye al contexto y a los límites del sistema, así como con el carácter verificable de los requisitos de ISO/IEC/IEEE 29148:2018 \cite{pohl2025,iso29148}. \textbf{Implicación.} El equipo debe solicitar confirmación sobre los actores, las integraciones y el ciclo de vida de una orden antes de aprobar una especificación definitiva.
 
 \subsection{Conclusión propuesta para Alvia Villegas Erick Adalberto}
 \textbf{Afirmación.} La elaboración del catálogo demuestra que reconocer una opción de la interfaz no equivale a disponer de un requisito correctamente formulado. \textbf{Evidencia.} Los botones Agregar, Editar y Anular proporcionan indicios funcionales, mientras que una especificación necesita condiciones, respuestas y criterios de aceptación para comprobar cada obligación. La literatura de ingeniería de requisitos y la sintaxis EARS ayudan a separar el comportamiento esperado de las decisiones de implementación \cite{iso29148,mavin2009}. \textbf{Implicación.} Los identificadores, la priorización MoSCoW y la matriz de trazabilidad deberían mantenerse en el repositorio durante la evolución del proyecto, especialmente cuando una modificación de órdenes pueda afectar resultados, permisos o reportes.
 
-\subsection{Conclusión propuesta para Chalacán Toalá Yerai David}
-\textbf{Afirmación.} Los requisitos de calidad y la protección de datos personales requieren más evidencia que una revisión visual de MEDICLAB. \textbf{Evidencia.} La presencia de cuentas con roles, datos identificativos y rangos de laboratorio justifica plantear controles de confidencialidad, integridad y desempeño, pero ninguna captura permite demostrar que dichos controles funcionan. ISO/IEC 25010:2023 ofrece un modelo de características de calidad; la legislación ecuatoriana establece responsabilidades sobre datos personales \cite{iso25010,lopdp2021}. \textbf{Implicación.} Los umbrales propuestos deben acordarse con los responsables del proyecto y verificarse con cuentas y registros ficticios antes de interpretar el sistema como apto para un entorno clínico real.
 
 \subsection{Verificación editorial y de integridad académica}
 \begin{table}[H]\centering\small
@@ -652,7 +651,7 @@ Repositorio público, URL y hoja SGA definitiva. & PENDIENTE de publicación.\\\
 \end{table}
 
 \subsection{Declaración de apoyo mediante inteligencia artificial}
-\textbf{Herramienta:} ChatGPT de OpenAI, modelo GPT-6. \textbf{Propósito:} apoyo en análisis de capturas del prototipo, consulta de bibliografía, organización de categorías, formulación de candidatos de requisitos y elaboración de fuentes LaTeX, tablas y diagramas. \textbf{Verificación realizada:} cotejo inicial con las capturas suministradas, confirmación de datos editoriales de referencias y compilación reproducible del documento. \textbf{Pendiente de verificación humana:} exactitud de la implementación, validación con stakeholders, aceptación de los valores de las métricas, revisión de las normas completas y autoría final de conclusiones. No se han inventado entrevistas, pruebas de rendimiento ni acuerdos de interesados.
+\textbf{Herramienta:} ChatGPT de OpenAI, Gemini. \textbf{Propósito:} apoyo en análisis de capturas del prototipo, consulta de bibliografía, organización de categorías,Guia para elaboración de fuente LaTeX. \textbf{Verificación realizada:} cotejo inicial con las capturas del proyecto suministradas, confirmación de datos editoriales de referencias brindadas por el usuario. \textbf{Pendiente de verificación humana:} exactitud de la implementación y revisión de las normas completas. No se han inventado entrevistas, pruebas de rendimiento ni acuerdos de interesados.
 
 \clearpage
 \bibliographystyle{IEEEtran}
