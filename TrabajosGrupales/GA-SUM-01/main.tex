@@ -65,16 +65,6 @@
 \usepackage[margin=2.3cm,headheight=18pt]{geometry}
 \usepackage{lmodern}
 \usepackage{graphicx}
-\graphicspath{{figuras/}}
-% Permite probar este archivo aunque todavía no se hayan añadido las figuras.
-% Al crear la carpeta figuras/ y colocar los archivos originales, los inserta.
-\newcommand{\imagensegura}[2][]{%
-  \IfFileExists{figuras/#2}{\includegraphics[#1]{#2}}{%
-    \fbox{\parbox[c][2.6cm][c]{0.85\linewidth}{\centering\footnotesize
-    Figura pendiente de adjuntar:\\
-    \texttt{\detokenize{#2}}}}%
-  }%
-}
 \usepackage{array,booktabs,tabularx,longtable,multirow}
 \usepackage{enumitem}
 \usepackage[table]{xcolor}
@@ -140,7 +130,7 @@
         \begin{flushleft} \large
             \textbf{Asignatura:} Ingeniería de Requerimientos (ISR-401)\\
             \textbf{Estudiante:} Alvia Villegas Erick Adalberto\\ 
-            & Chalacan Toala Yerai David\\
+             Chalacan Toala Yerai David\\
             \textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD\\
             \textbf{Modalidad:} Grupal, Sumativa
         \end{flushleft}
@@ -231,7 +221,7 @@ Reportes & Vista previa de informe estructural con parámetros. & Auditoría, va
 \subsection{Necesidad, requisito y especificación (2.1)}
 \textbf Un requisito representa una condición o capacidad que un sistema debe satisfacer para responder a una necesidad de una parte interesada. La especificación establece un registro organizado de dichas condiciones para orientar diseño, construcción y evaluación; ISO/IEC/IEEE 29148:2018 desarrolla los procesos y productos de ingeniería de requisitos \cite{iso29148}.
 
-\textbfLa La diferencia principal radica en que la necesidad describe una dificultad directa del entorno y el requisito transforma esa preocupación en una obligación valida y comprobable. La frase "el laboratorio necesita ordenar mejor sus solicitudes" es verdad que puede guiar una conversación, pero todavía no explica qué datos deben conservarse especificamente. Una formulación como "el sistema deberá vincular cada orden a un paciente y a un médico seleccionado" restringe el resultado esperado y puede evaluarse con registros de prueba.
+\textbf La La diferencia principal radica en que la necesidad describe una dificultad directa del entorno y el requisito transforma esa preocupación en una obligación valida y comprobable. La frase "el laboratorio necesita ordenar mejor sus solicitudes" es verdad que puede guiar una conversación, pero todavía no explica qué datos deben conservarse especificamente. Una formulación como "el sistema deberá vincular cada orden a un paciente y a un médico seleccionado" restringe el resultado esperado y puede evaluarse con registros de prueba.
 
 \textbf{Ejemplo.} La pantalla Nueva orden contiene campos para paciente, médico y examen, además de una lista de exámenes. Se deriva un candidato que prohíba guardar una orden sin estas asociaciones. No se afirma que la validación ya esté programada; debe probarse.
 
