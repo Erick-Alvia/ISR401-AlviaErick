@@ -11,6 +11,7 @@ El repositorio se encuentra organizado por módulos y tipos de entrega para faci
 ```text
 .
 ├── .github/              <-- Plantillas de issues y flujos de trabajo
+├── Evaluaciones-Practicas/               <-- Aqui se almacenaran todas las evaluaciones hechas en la materia
 ├── TrabajosGrupales/           <-- Trabajos, tareas y prácticas Grupales
 ├── TrabajosIndividuales/               <-- Trabajos, tareas y prácticas Individuales
 └── README.md             <-- Documentación principal del repositorio
