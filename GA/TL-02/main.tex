@@ -1,1 +1,385 @@
 
+
+\documentclass[11pt,a4paper]{article}
+
+% Compilar con: pdflatex main.tex (dos veces para actualizar referencias internas).
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=1.85cm,top=2.15cm,bottom=1.8cm,headheight=14pt]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[table]{xcolor}
+\usepackage{array,tabularx,booktabs}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\definecolor{azulfabro}{HTML}{174463}
+\definecolor{lineaazul}{HTML}{477CAC}
+\definecolor{turquesafabro}{HTML}{527E89}
+\definecolor{fondotabla}{HTML}{D6E2F0}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=azulfabro,
+    linkcolor=azulfabro,
+    pdftitle={Guion de entrevista - Propietario de vivienda estudiantil - Fabro-Arriendos}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\footnotesize\bfseries\color{turquesafabro} FABRO-ARRIENDOS}
+\fancyfoot[L]{\footnotesize Página \thepage}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{3em}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+
+\titleformat{\section}
+{\color{azulfabro}\Large\bfseries}
+{}{0pt}{}
+
+\titleformat{\subsection}
+{\color{azulfabro}\normalsize\bfseries}
+{}{0pt}{}
+
+\titlespacing*{\section}{0pt}{5pt}{5pt}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+
+\newcommand{\habla}[2]{
+    \par\noindent\hspace*{0.8em}\textbf{#1:} #2\par
+}
+
+\newcommand{\pregunta}[2]{
+    \par\noindent\textbf{#1. Pregunta #1 | Alvia:} #2\par
+}
+
+\begin{document}
+
+% =============================== PÁGINA 1 ===============================
+
+{\color{azulfabro}\Huge\bfseries GUION DE ENTREVISTA\par}
+
+\vspace{0.1cm}
+
+{\color{lineaazul}\rule{\linewidth}{1.1pt}\par}
+
+\vspace{0.25cm}
+
+{\color{turquesafabro}\large\bfseries
+Propietario de vivienda estudiantil · Fabro-Arriendos\par}
+
+\vspace{0.1cm}
+
+{\small\bfseries\color{azulfabro}
+SIMULACIÓN ACADÉMICA — NO ES REGISTRO DE UNA ENTREVISTA REAL\par}
+
+\vspace{0.35cm}
+
+\renewcommand{\arraystretch}{1.28}
+
+\begin{tabularx}{\linewidth}{
+    |>{\bfseries\columncolor{fondotabla}}p{3.7cm}|X|
+}
+\hline
+Proyecto & Fabro-Arriendos\\ \hline
+Entrevistador & Alvia Villegas Erick\\ \hline
+Entrevistado (rol) & Chalacan Toala Yerai\\ \hline
+Testigo & Alcivar Velez Anderson\\ \hline
+Modalidad & Entrevista semiestructurada simulada\\ \hline
+Duración prevista & 22 minutos aproximadamente\\ \hline
+Base documental & ``Preguntas Entrevista.pdf'': sección Propietarios, preguntas 1--22\\ \hline
+Selección & 16 preguntas principales\\ \hline
+Fecha de una entrevista real & 19/11/2026\\ \hline
+\end{tabularx}
+
+\vspace{0.35cm}
+
+\subsection*{Supuesto de la representación}
+
+En este guion, el compañero Chalacan interpreta a alguien que administra una casa con cuatro habitaciones para arrendar a los estudiantes cerca de una zona universitaria de Quevedo. Su medio de trabajo principal es WhatsApp, un cuaderno y una hoja de cálculo básica. Los montos y las situaciones narradas son ejemplos inventados creados a travez de la entrevista que se le realizo.
+
+\subsection*{Distribución orientativa del tiempo}
+
+\renewcommand{\arraystretch}{1.18}
+
+\begin{tabularx}{\linewidth}{
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{3.6cm}
+}
+\toprule
+\textbf{Parte} & \textbf{Duración prevista}\\
+\midrule
+\rowcolor{fondotabla} Apertura y explicación & 1:00 min\\
+Bloque 1 --- Contexto y operación & 5:00 min\\
+\rowcolor{fondotabla} Bloque 2 --- Finanzas y administración & 5:30 min\\
+Bloque 3 --- Inquilinos y problemas & 5:30 min\\
+\rowcolor{fondotabla} Bloque 4 --- Seguridad y cierre & 4:30 min\\
+Despedida & 1:00 min\\
+\rowcolor{fondotabla}\textbf{TOTAL} & \textbf{22:30 min}\\
+\bottomrule
+\end{tabularx}
+
+
+% =============================== PÁGINA 2 ===============================
+
+\clearpage
+
+\section*{Guion}
+
+\subsection*{Apertura — aproximadamente 1 minuto}
+
+\habla{Alvia}{
+Buenas Tardes, Don Chalacan. Gracias por ayudarnos en este ejercicio. En este caso estamos practicando cómo se entrevista a un propietario para entender cómo maneja los arriendos y qué problemas le salen en el día a día. No hay respuestas buenas o malas solo respuestas jj; la idea es que me hables asi como normalmente lo harías.
+}
+
+\habla{Chalacan}{
+Sí, está bien. Disculpa si no sé explicar todo de forma tan técnica porque yo más bien lo hago a mi manera, con lo que he aprendido. Pero sí, te puedo contar cómo me organizo.
+}
+
+\habla{Alvia}{
+Ok. Otra cosa es que Anderson nos acompaña como testigo de esta práctica asi que bueno. Vamos a comenzar.
+}
+
+
+% =============================================================================
+% BLOQUE 1
+% =============================================================================
+
+\subsection*{Bloque 1. Contexto y operación actual — 5 minutos}
+
+\pregunta{01}{
+¿Qué te motivó a empezar a alquilar y qué espacios ofreces ahora?
+}
+
+\habla{Chalacan}{
+Bueno, yo empecé más que nada porque en la casa había cuartos que no se estaban usando. Entonces, hablando con mi familia, pensamos que podía servir para tener un ingreso extra. No fue que yo supiera mucho de arrendamientos, la verdad. Ahorita, en este ejemplo, tengo cuatro habitaciones; cada una tiene lo básico, como una cama y espacio para estudiar. Hay una cocina que se comparte y acceso a internet. La mayoría de interesados son estudiantes porque les queda más o menos cerca de donde estudian.
+}
+
+
+\pregunta{02}{
+Compredo y cuando tienes un cuarto libre, ¿cómo haces para que otras personas se enteren?
+}
+
+\habla{Chalacan}{
+Casi siempre lo pongo en mi estado de WhatsApp y les digo a los conocidos que me ayuden compartiendo. A veces publico en algún grupo donde preguntan por cuartos, pero no tengo un anuncio muy organizado. Normalmente escribo el precio, digo que tiene internet y mando unas fotos cuando alguien me pregunta. Ahí es cuando me complico, porque tengo que responder lo mismo varias veces y a veces se me olvida decir algún detalle, como si la luz se paga aparte. Sí me ayudaría tener todo eso puesto en un solo sitio y que se vea asi si todavía está disponible ya sabes.
+}
+
+
+\pregunta{03}{
+bueno entonces cuéntame cómo es el proceso que llevas tu desde que alguien te escribe hasta que le entregas la llave para la habitación?.
+}
+
+\habla{Chalacan}{
+Primero me escribe preguntando por el cuarto y yo le digo el precio y qué servicios hay. Después, si le interesa, coordinamos para que venga a verlo. Cuando ya lo ha visto y quiere quedarse, conversamos sobre cuándo entra y cómo va a pagar. Yo pido unos datos de contacto y revisamos las reglas de la casa. Luego hacemos un acuerdo sencillo y, cuando está confirmado el primer pago y todo está claro, le entrego la llave. La parte que más me enreda es llevar anotadas las fechas y recordar a quién ya le ofrecí el cuarto, porque a veces hablan dos personas por el mismo espacio.
+}
+
+\habla{Alvia}{
+OK, ¿Y cómo evitas ofrecerlo a los dos al mismo tiempo?
+}
+
+\habla{Chalacan}{
+Pues trato de marcarlo como ocupado en mi cuaderno, pero si estoy fuera de casa no siempre tengo ese cuaderno a la mano.
+}
+
+
+% =============================== PÁGINA 3 ===============================
+
+\clearpage
+
+\pregunta{04}{
+¿Cómo haces el acuerdo con el inquilino y qué cosas te parece importante dejar claras?
+}
+
+\habla{Chalacan}{
+Al principio yo pensaba que con hablar era suficiente, pero después entendí que es mejor escribir aunque sea un documento sencillo. Ahí colocaría cuánto se paga, qué día se vence, qué servicios vienen incluidos, si hay garantía y con cuánto tiempo debería avisar una persona si se va. Para mí lo que no debe quedar en el aire es el pago y el cuidado del cuarto. También las reglas sobre visitas y ruido, para que no se molesten entre ellos. Igual, si algo no se entiende, prefiero explicarlo antes y no esperar a que aparezca el problema.
+}
+
+\habla{Alvia}{
+Bien, ya entiendo un poquito cómo llegan los interesados. Ahora me gustaría saber cómo llevas las cuentas, porque eso parece ser otra parte importante para el negocio.
+}
+
+
+% =============================================================================
+% BLOQUE 2
+% =============================================================================
+
+\subsection*{Bloque 2. Gestión financiera y administrativa — 5 minutos y medio}
+
+\pregunta{05}{
+¿Cómo registras quién pagó, quién se atrasó y cuánto entra cada mes?
+}
+
+\habla{Chalacan}{
+Yo tengo un cuaderno donde pongo los nombres y voy marcando el mes que cancelaron. A veces también anoto algo en Excel, pero no te voy a mentir: no siempre lo actualizo el mismo día. Si me hacen una transferencia, busco el comprobante en WhatsApp o en el banco y ahí confirmo. El problema es cuando estoy ocupado y dejo para después esa anotación; luego me toca revisar mensajes para acordarme de qué pago era. Me gustaría algo donde aparezca un estado de pagado o pendiente y que se pueda guardar el comprobante sin estar buscando por todas partes.
+}
+
+
+\pregunta{06}{
+¿Cómo calculas lo que realmente ganas después de pagar los gastos de la propiedad?
+}
+
+\habla{Chalacan}{
+La verdad, no hago un cálculo tan exacto todos los meses. Primero sumo lo que se supone que recibí de los cuartos y luego resto lo que pagué por agua, internet, reparaciones y alguna compra que se necesite. Lo anoto más o menos, pero a veces me acuerdo de un gasto después y cambia la cuenta. Entonces puedo pensar que entró bastante dinero, pero no significa que todo eso sea ganancia. Yo quisiera ver un resumen mensual sencillo, con ingresos y egresos, porque así me daría cuenta si mantener los cuartos me está dejando algo o si estoy gastando más de la cuenta.
+}
+
+
+\pregunta{07}{
+Cuando varias personas viven en la casa, ¿cómo cobran y dividen agua, luz e internet?
+}
+
+\habla{Chalacan}{
+Nosotros tratamos de explicarlo antes de que entren. Por ejemplo, el internet puede ir incluido en el arriendo, pero la luz se puede dividir entre quienes ocupan los cuartos ese mes. El agua depende del acuerdo que tengamos. Lo que pasa es que no siempre hay el mismo número de personas y ahí se vuelve medio incómodo sacar cuánto le toca a cada uno. A veces uno dice que casi no pasó en la casa y pregunta por qué debe pagar igual. Por eso creo que la regla tendría que quedar escrita y que el cálculo se muestre, para evitar que parezca que me inventé un valor.
+}
+
+
+\pregunta{08}{
+¿Qué te pasa económicamente si alguien deja el cuarto de repente y no avisa?
+}
+
+\habla{Chalacan}{
+Sí afecta, porque yo ya cuento con ese dinero. Si alguien se va de un día para otro, el cuarto puede quedarse vacío unas semanas hasta que otra persona lo vea y se decida. Y mientras tanto igual toca pagar servicios o arreglar algo que haya quedado pendiente. A veces uno cree que por tener cuatro cuartos va a recibir siempre lo mismo, pero no es así.
+}
+
+\habla{Alvia}{
+Entiendo. Además de los pagos, imagino que a veces se presentan inconvenientes con quienes alquilan. Así que te voy a preguntar sobre eso, sin mencionar nombres de personas.
+}
+
+
+% =============================== PÁGINA 4 ===============================
+
+\clearpage
+
+% =============================================================================
+% BLOQUE 3
+% =============================================================================
+
+\subsection*{Bloque 3. Comportamiento de inquilinos y problemas — 5 minutos y medio}
+
+\pregunta{09}{
+Sin dar nombres, ¿qué conductas de algunos inquilinos te han causado problemas?
+}
+
+\habla{Chalacan}{
+A ver, lo más incómodo sería cuando una persona se retrasa seguido en el pago y no responde los mensajes. También cuando deja basura en zonas compartidas o hace ruido muy tarde y los demás se quejan. No digo que todos sean así, porque la mayoría cumple, pero esos casos consumen bastante tiempo. A veces uno les llama la atención y después vuelve a ocurrir. Lo difícil es que no siempre queda escrito qué pasó o qué se acordó para solucionarlo.
+}
+
+
+\pregunta{10}{
+¿Notas alguna señal cuando un inquilino está pensando en irse antes de avisarte?
+}
+
+\habla{Chalacan}{
+No siempre se puede saber y tampoco creo que sea justo asumir cosas de alguien solo por cómo se comporta. Pero sí pasa que una persona empiece a preguntar cómo le devolverían la garantía o cuánto aviso necesita para desocupar. Ahí yo aprovecho para conversar y preguntarle si ya tiene alguna fecha prevista. Más que tratar de adivinar si se va, preferiría que haya una opción para que el propio inquilino avise con tiempo y se registre la fecha. Eso sirve para buscar a otra persona, y también para que no exista una discusión después sobre cuándo entregó el cuarto.
+}
+
+
+\pregunta{11}{
+¿Cómo te enteras de daños o conflictos entre las personas que viven allí?
+}
+
+\habla{Chalacan}{
+La mayoría de veces me mandan un mensaje, por ejemplo diciendo que un foco se dañó, que hay una fuga o que alguien está haciendo ruido. Si yo estoy trabajando y no reviso el teléfono, a veces me entero tarde. Y cuando se trata de un problema entre dos personas, cada una me cuenta algo distinto, entonces no sé bien qué ocurrió. Yo intento ir a mirar cuando puedo y conversar con ellos. Sería útil que pudieran reportar el problema con una foto, fecha y una explicación corta, y que yo marque si ya lo revisé o si falta arreglarlo.
+}
+
+
+\pregunta{12}{
+¿Cómo verificas si alguien que quiere alquilar ha tenido problemas de pago o convivencia anteriormente?
+}
+
+\habla{Chalacan}{
+La verdad no tengo un método formal. Primero converso con la persona y trato de explicarle las reglas. Si ella acepta y me da una referencia de algún arriendo anterior, podría preguntar con su permiso cómo fue la experiencia. Pero tampoco quisiera estar averiguando cosas privadas sin autorización ni tratar mal a alguien por comentarios de otras personas. Para mí sería más importante tener un registro claro de los acuerdos, los pagos y las novedades que ocurren dentro de mi propiedad, respetando la privacidad. Así puedo tomar decisiones con información que realmente conozco, no solo con rumores.
+}
+
+\par\noindent
+\textbf{Transición (Alvia):}
+Ya casi terminamos. Me interesa conocer cómo cuidas el inmueble y qué te facilitaría administrar los cuartos.
+
+
+% =============================================================================
+% BLOQUE 4
+% =============================================================================
+
+\subsection*{Bloque 4. Seguridad, ocupación y cierre — 4 minutos y medio}
+
+\pregunta{13}{
+¿Qué medidas de seguridad tienes y qué problemas has encontrado con ellas?
+}
+
+\habla{Chalacan}{
+Bueno, principalmente está la puerta principal, las cerraduras de los cuartos y una luz que queda encendida en el acceso. Yo reviso que la puerta cierre bien y les pido que no entreguen copias de llaves a personas ajenas sin avisar. Por ahora no tengo algo muy avanzado, como control digital de entrada. El inconveniente es cuando se pierde una llave o alguien deja abierto sin darse cuenta. También quisiera llevar anotado a quién se le entregó cada llave y cuándo la devolvió, porque eso luego se olvida. No digo que eso resuelva toda la seguridad, pero ayudaría bastante.
+}
+
+
+% =============================== PÁGINA 5 ===============================
+
+\clearpage
+
+\pregunta{14}{
+¿Qué tan difícil es conseguir otro inquilino si un estudiante desocupa a mitad del semestre o durante vacaciones?
+}
+
+\habla{Chalacan}{
+A veces sí cuesta. Cuando empiezan clases hay más gente preguntando, pero en vacaciones o en medio del ciclo puede pasar tiempo sin que alguien se decida. Entonces toca volver a tomar fotos, escribir publicaciones y responder preguntas. Si ya tengo una habitación vacía quisiera anunciarla desde la fecha en que queda disponible, no esperar a que alguien venga y recién ahí ofrecerla. También sería bueno poder actualizar el anuncio si cambian el precio o los servicios. Lo que más molesta es seguir recibiendo mensajes por un cuarto que ya se ocupó, porque uno pierde tiempo y la otra persona también.
+}
+
+
+\pregunta{15}{
+De todo lo administrativo, ¿qué tarea te quita más tiempo durante el mes?
+}
+
+\habla{Chalacan}{
+Yo diría que revisar pagos y contestar mensajes. Se juntan varias cosas: alguien pregunta por un comprobante, otro quiere saber cuándo vence, otra persona consulta si hay cuarto libre. Y aunque son preguntas sencillas, si tengo que buscar entre cuadernos y conversaciones se me va bastante tiempo. También me olvido de pasar algunos gastos a mi registro. Si tuviera que empezar con una sola mejora, sería un panel donde vea las habitaciones, quién está ocupando cada una, el pago de este mes y algún aviso de atrasos. Eso me ordenaría mucho, aunque igual tendría que revisar la información.
+}
+
+
+\pregunta{16}{
+¿Cómo decides cuánto cobrar por un cuarto y qué hace que cambie ese precio?
+}
+
+\habla{Chalacan}{
+Más o menos comparo lo que he visto que cobran por la zona y miro qué incluye mi cuarto. Por ejemplo, si está amoblado, tiene internet o necesita algún arreglo, eso influye. También calculo los gastos básicos y trato de no poner un precio tan alto que nadie quiera alquilar. Pero, siendo sincero, lo hago bastante a ojo; no tengo una tabla con todos esos criterios. Me ayudaría registrar el precio de cada habitación y lo que incluye, y guardar cuándo se modifica y por qué. Así, si un estudiante pregunta, puedo explicárselo mejor y no dar precios distintos por equivocación.
+}
+
+
+% =============================================================================
+% DESPEDIDA
+% =============================================================================
+
+\subsection*{Despedida — aproximadamente 1 minuto}
+
+\habla{Alvia}{
+Listo Chalacan, Entonces gracias por explicarlo con tus palabras estuvo bien para ser una practica jaja. En fin para cerrar, lo que más se repite es que hoy manejas la información en varios lugares: publicaciones, mensajes, cuaderno y Excel. También sabemos que te cuesta llevar pagos, saber qué habitaciones están disponibles y registrar novedades. ¿Ese resumen podria representar lo que quisiste decir de pronto?
+}
+
+\habla{Chalacan}{
+Sí, así mismo. Yo diría que lo principal es organizar todo, porque en un cuaderno uno se defiende, pero cuando ya son varios cuartos y hay que hacer más cosas, se complica. Tampoco quisiera algo difícil de usar, porque yo recién estoy aprendiendo a manejar esas herramientas.
+}
+
+\habla{Alvia}{
+Listo en ese caso, muchas gracias por participar. Con esto terminamos el ensayo asi que nos vemos.
+}
+
+
+% =============================================================================
+% NOTAS FINALES
+% =============================================================================
+
+\subsection*{Notas de uso}
+
+\begin{itemize}
+
+\item Las 16 preguntas proceden de los cuatro bloques de la sección ``Propietarios'' del documento proporcionado por el compañero Erick Alvia en base a su proyecto académico Fabro-Arriendos. La fuente contiene 22 preguntas en esa sección.
+
+\item La pregunta 19 se adaptó solo para claridad: donde en el documento dice ``nuevos propietarios'' se interpreta ``nuevos inquilinos'' en el contexto de reemplazar a un estudiante que desocupa.
+
+\end{itemize}
+
+\end{document}
