@@ -1,8 +1,7 @@
-
-
 \documentclass[11pt,a4paper]{article}
 
-% Compilar con: pdflatex main.tex (dos veces para actualizar referencias internas).
+% Compilar con: pdflatex main.tex; bibtex main; pdflatex main.tex; pdflatex main.tex
+% (detalles en Readme.md)
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -12,6 +11,9 @@
 \usepackage{microtype}
 \usepackage[table]{xcolor}
 \usepackage{array,tabularx,booktabs}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -26,7 +28,7 @@
     colorlinks=true,
     urlcolor=azulfabro,
     linkcolor=azulfabro,
-    pdftitle={Guion de entrevista - Propietario de vivienda estudiantil - Fabro-Arriendos}
+    pdftitle={GA-TL-02 FORM - Guion de entrevista, mapa de empatia y definicion del problema - Fabro-Arriendos}
 }
 
 \pagestyle{fancy}
@@ -41,6 +43,7 @@
 \setlength{\parskip}{4pt}
 \setlength{\emergencystretch}{3em}
 \setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=3pt}
 
 \titleformat{\section}
 {\color{azulfabro}\Large\bfseries}
@@ -58,14 +61,16 @@
 }
 
 \newcommand{\pregunta}[2]{
-    \par\noindent\textbf{#1. Pregunta #1 | Alvia:} #2\par
+    \par\noindent\textbf{P#1 | Alvia:} #2\par
 }
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 \begin{document}
 
-% =============================== PÁGINA 1 ===============================
+% =============================== PORTADA ===============================
 
-{\color{azulfabro}\Huge\bfseries GUION DE ENTREVISTA\par}
+{\color{azulfabro}\Huge\bfseries GA-TL-02 FORM\par}
 
 \vspace{0.1cm}
 
@@ -74,38 +79,136 @@
 \vspace{0.25cm}
 
 {\color{turquesafabro}\large\bfseries
-Propietario de vivienda estudiantil · Fabro-Arriendos\par}
+Entrevista estructurada y design thinking aplicados al PFC\par}
+
+{\color{turquesafabro}\normalsize
+Propietario de vivienda estudiantil · Fabro-Arriendos · Ingeniería de Requerimientos (ISR-401), 4.º nivel, paralelo A\par}
 
 \vspace{0.1cm}
 
 {\small\bfseries\color{azulfabro}
-SIMULACIÓN ACADÉMICA — NO ES REGISTRO DE UNA ENTREVISTA REAL\par}
+EL ENSAYO ES UNA SIMULACIÓN ACADÉMICA: NO ES REGISTRO DE UNA ENTREVISTA REAL\par}
 
 \vspace{0.35cm}
 
 \renewcommand{\arraystretch}{1.28}
 
 \begin{tabularx}{\linewidth}{
-    |>{\bfseries\columncolor{fondotabla}}p{3.7cm}|X|
+    |>{\bfseries\columncolor{fondotabla}}p{4.2cm}|X|
 }
 \hline
 Proyecto & Fabro-Arriendos\\ \hline
+Docente & Gleiston Cicerón Guerrero Ulloa, PhD\\ \hline
 Entrevistador & Alvia Villegas Erick\\ \hline
-Entrevistado (rol) & Chalacan Toala Yerai\\ \hline
+Entrevistado (rol de propietario) & Chalacan Toala Yerai\\ \hline
 Testigo & Alcivar Velez Anderson\\ \hline
-Modalidad & Entrevista semiestructurada simulada\\ \hline
+Modalidad & Entrevista semiestructurada simulada (juego de roles en clase)\\ \hline
 Duración prevista & 22 minutos aproximadamente\\ \hline
-Base documental & ``Preguntas Entrevista.pdf'': sección Propietarios, preguntas 1--22\\ \hline
-Selección & 16 preguntas principales\\ \hline
-Fecha de una entrevista real & 19/11/2026\\ \hline
+Base documental & Borrador de preguntas del equipo, sección Propietarios (22 preguntas)\\ \hline
+Preguntas usadas en el ensayo & 16\\ \hline
+Preguntas del guion corregido & 14 (ver sección «Ajustes al guion»)\\ \hline
+Evidencias privadas & Audio del ensayo y consentimiento firmado: carpeta institucional privada; nombre de archivo, fecha, duración y SHA-256 en \texttt{MANIFIESTO.md}\\ \hline
 \end{tabularx}
-
-\vspace{0.35cm}
 
 \subsection*{Supuesto de la representación}
 
-En este guion, el compañero Chalacan interpreta a alguien que administra una casa con cuatro habitaciones para arrendar a los estudiantes cerca de una zona universitaria de Quevedo. Su medio de trabajo principal es WhatsApp, un cuaderno y una hoja de cálculo básica. Los montos y las situaciones narradas son ejemplos inventados creados a travez de la entrevista que se le realizo.
+El compañero Chalacan interpreta a alguien que administra una casa con cuatro habitaciones para arrendar a estudiantes cerca de una zona universitaria de Quevedo. Su medio de trabajo principal es WhatsApp, un cuaderno y una hoja de cálculo básica. Los montos y las situaciones narradas son ejemplos inventados para la simulación; no provienen de un propietario real.
 
+\subsection*{Contenido de este documento}
+
+\begin{enumerate}
+\item Guion de entrevista corregido (14 preguntas, con apertura, bloques y cierre).
+\item Protocolo de consentimiento informado (una carilla).
+\item Registro del ensayo: lo que se preguntó y respondió en la simulación (16 preguntas).
+\item Mapa de empatía del propietario y su trazabilidad con el ensayo.
+\item Definición del problema.
+\item Ajustes: preguntas que fallaron y su versión corregida.
+\item Declaración de uso de inteligencia artificial y referencias.
+\end{enumerate}
+
+% =============================== GUION ===============================
+
+\clearpage
+
+\section*{1. Guion de entrevista (versión corregida)}
+
+\textbf{Objetivo.} Conocer cómo gestiona hoy un propietario la captación de inquilinos, el control de pagos, la convivencia y la seguridad del inmueble, como punto de partida para elicitar requisitos de Fabro-Arriendos. Las técnicas de entrevista y de design thinking se toman de \cite{pohl2025,buhne2026}.
+
+\textbf{Reglas del entrevistador.} Preguntar una sola cosa a la vez. No sugerir respuestas ni calificarlas. Pedir casos concretos y recientes. No anotar nombres de inquilinos. Los sondeos entre paréntesis se usan solo si la persona no desarrolla su respuesta.
+
+\subsection*{Apertura}
+Presentación del equipo, objetivo, duración aproximada, lectura del consentimiento y confirmación de que acepta la grabación de audio. Se aclara que puede omitir preguntas o terminar cuando quiera.
+
+\subsection*{Bloque 1. Contexto y operación actual}
+\begin{enumerate}[label=\textbf{G\arabic*.},start=1]
+\item Cuénteme cómo es hoy su actividad como arrendador. \textit{(Sondeo: cómo empezó y qué espacios ofrece.)}
+\item ¿Cómo da a conocer que tiene un cuarto libre?
+\item Descríbame, paso a paso, lo que ocurre desde que alguien le escribe hasta que recibe la llave.
+\item ¿Cómo deja establecido el acuerdo con el inquilino? \textit{(Sondeo: qué cosas incluye.)}
+\end{enumerate}
+
+\subsection*{Bloque 2. Gestión financiera y administrativa}
+\begin{enumerate}[label=\textbf{G\arabic*.},start=5]
+\item ¿Cómo lleva el registro de los pagos de cada mes?
+\item ¿Cómo calcula cuánto le queda cada mes después de los gastos de la propiedad?
+\item ¿Cómo se cobran el agua, la luz y el internet cuando varias personas viven en la casa?
+\item Recuerde una vez en que un inquilino dejó el cuarto de repente. ¿Qué pasó y qué hizo usted después?
+\end{enumerate}
+
+\subsection*{Bloque 3. Inquilinos y problemas}
+\begin{enumerate}[label=\textbf{G\arabic*.},start=9]
+\item Sin dar nombres, cuénteme un caso en que un inquilino le causó un problema. ¿Qué pasó?
+\item ¿Cómo se entera cuando hay un daño en la casa o un problema entre inquilinos? \textit{(Sondeo: el último caso que recuerde.)}
+\item ¿Cómo revisa, si lo hace, la información de alguien que quiere alquilar?
+\end{enumerate}
+
+\subsection*{Bloque 4. Seguridad y administración}
+\begin{enumerate}[label=\textbf{G\arabic*.},start=12]
+\item ¿Qué medidas usa para cuidar la casa y controlar quién entra, si usa alguna?
+\item ¿Qué tarea de la administración le toma más tiempo al mes?
+\item ¿Cómo decide cuánto cobrar por un cuarto?
+\end{enumerate}
+
+\subsection*{Cierre}
+Se pregunta si desea agregar algo más, se resume lo conversado para confirmar que se entendió bien, se agradece su tiempo y se recuerda dónde se guarda el audio y que no se publicará.
+
+% =============================== CONSENTIMIENTO ===============================
+
+\clearpage
+
+\section*{2. Protocolo de consentimiento informado}
+\small
+\textbf{Proyecto.} Entrevista para el levantamiento de requisitos del sistema Fabro-Arriendos, asignatura Ingeniería de Requerimientos (ISR-401), Universidad Técnica Estatal de Quevedo (UTEQ).
+
+\textbf{Responsables.} Equipo del PFC Fabro-Arriendos. Docente: Gleiston Cicerón Guerrero Ulloa, PhD. El integrante que realiza la entrevista anota abajo su correo institucional (@uteq.edu.ec) como contacto.
+
+\textbf{Propósito.} Conocer cómo administra usted sus arriendos para identificar necesidades que el sistema deba cubrir. Es una actividad académica.
+
+\textbf{Qué se le pide.} Una entrevista de 20 a 25 minutos con preguntas abiertas sobre su experiencia como arrendador. Con su permiso, se graba solo el audio.
+
+\textbf{Participación voluntaria.} Usted decide participar. Puede no responder una pregunta, pedir que se detenga la grabación o terminar la entrevista en cualquier momento, sin ninguna consecuencia.
+
+\textbf{Datos que se recogen.} Su nombre y firma en este documento, y el audio de la entrevista. No se le piden cédula, teléfono ni correo personal. Se le pide no mencionar nombres de sus inquilinos.
+
+\textbf{Confidencialidad y uso.} El audio y este documento firmado se guardan en una carpeta institucional privada (cuenta @uteq.edu.ec) a la que solo acceden el equipo y el docente. En el repositorio público no se publica su nombre, su firma ni el audio; solo se registra el nombre del archivo, la fecha, la duración y su huella SHA-256. Sus respuestas se usan únicamente para este trabajo académico y se presentan sin identificarlo. El tratamiento de sus datos personales sigue la Ley Orgánica de Protección de Datos Personales \cite{lopdp2021}, que le reconoce derechos sobre ellos, entre otros el de pedir su eliminación.
+
+\textbf{Declaración del participante.} He leído este documento, me explicaron el propósito de la entrevista y acepto participar de forma voluntaria.
+
+\medskip
+\begin{tabularx}{\textwidth}{@{}Y Y@{}}
+Nombre del participante: \hrulefill & Fecha: \hrulefill \\[10pt]
+Firma: \hrulefill & Nombre del entrevistador: \hrulefill \\[10pt]
+Correo institucional del entrevistador: \hrulefill & Autoriza la grabación de audio: $\square$ Sí \quad $\square$ No \\
+\end{tabularx}
+\normalsize
+
+\textbf{Consentimiento en el ensayo.} Los participantes del ensayo dieron su consentimiento antes de la grabación. El original está en la carpeta institucional privada y se registra en \texttt{MANIFIESTO.md}.
+
+% =============================== ENSAYO ===============================
+
+\clearpage
+
+\section*{3. Registro del ensayo (juego de roles)}
 \subsection*{Distribución orientativa del tiempo}
 
 \renewcommand{\arraystretch}{1.18}
@@ -127,17 +230,15 @@ Despedida & 1:00 min\\
 \bottomrule
 \end{tabularx}
 
+\medskip
+Lo que sigue es el registro del ensayo tal como se realizó, con sus 16 preguntas. Las preguntas defectuosas se analizan en la sección «Ajustes al guion» y no se corrigieron aquí para no alterar el registro.
 
-% =============================== PÁGINA 2 ===============================
 
-\clearpage
-
-\section*{Guion}
 
 \subsection*{Apertura — aproximadamente 1 minuto}
 
 \habla{Alvia}{
-Buenas Tardes, Don Chalacan. Gracias por ayudarnos en este ejercicio. En este caso estamos practicando cómo se entrevista a un propietario para entender cómo maneja los arriendos y qué problemas le salen en el día a día. No hay respuestas buenas o malas solo respuestas jj; la idea es que me hables asi como normalmente lo harías.
+Buenas tardes, Don Chalacan. Gracias por ayudarnos en este ejercicio. En este caso estamos practicando cómo se entrevista a un propietario para entender cómo maneja los arriendos y qué problemas le salen en el día a día. No hay respuestas buenas o malas; la idea es que me hables así, como lo harías normalmente.
 }
 
 \habla{Chalacan}{
@@ -145,7 +246,7 @@ Sí, está bien. Disculpa si no sé explicar todo de forma tan técnica porque y
 }
 
 \habla{Alvia}{
-Ok. Otra cosa es que Anderson nos acompaña como testigo de esta práctica asi que bueno. Vamos a comenzar.
+Ok. Otra cosa es que Anderson nos acompaña como testigo de esta práctica, así que vamos a comenzar.
 }
 
 
@@ -165,16 +266,16 @@ Bueno, yo empecé más que nada porque en la casa había cuartos que no se estab
 
 
 \pregunta{02}{
-Compredo y cuando tienes un cuarto libre, ¿cómo haces para que otras personas se enteren?
+Comprendo. Y cuando tienes un cuarto libre, ¿cómo haces para que otras personas se enteren?
 }
 
 \habla{Chalacan}{
-Casi siempre lo pongo en mi estado de WhatsApp y les digo a los conocidos que me ayuden compartiendo. A veces publico en algún grupo donde preguntan por cuartos, pero no tengo un anuncio muy organizado. Normalmente escribo el precio, digo que tiene internet y mando unas fotos cuando alguien me pregunta. Ahí es cuando me complico, porque tengo que responder lo mismo varias veces y a veces se me olvida decir algún detalle, como si la luz se paga aparte. Sí me ayudaría tener todo eso puesto en un solo sitio y que se vea asi si todavía está disponible ya sabes.
+Casi siempre lo pongo en mi estado de WhatsApp y les digo a los conocidos que me ayuden compartiendo. A veces publico en algún grupo donde preguntan por cuartos, pero no tengo un anuncio muy organizado. Normalmente escribo el precio, digo que tiene internet y mando unas fotos cuando alguien me pregunta. Ahí es cuando me complico, porque tengo que responder lo mismo varias veces y a veces se me olvida decir algún detalle, como si la luz se paga aparte. Sí me ayudaría tener todo eso puesto en un solo sitio y que se vea así si todavía está disponible ya sabes.
 }
 
 
 \pregunta{03}{
-bueno entonces cuéntame cómo es el proceso que llevas tu desde que alguien te escribe hasta que le entregas la llave para la habitación?.
+Entonces cuéntame, ¿cómo es el proceso que llevas tú desde que alguien te escribe hasta que le entregas la llave de la habitación?
 }
 
 \habla{Chalacan}{
@@ -182,7 +283,7 @@ Primero me escribe preguntando por el cuarto y yo le digo el precio y qué servi
 }
 
 \habla{Alvia}{
-OK, ¿Y cómo evitas ofrecerlo a los dos al mismo tiempo?
+OK, ¿y cómo evitas ofrecerlo a los dos al mismo tiempo?
 }
 
 \habla{Chalacan}{
@@ -190,7 +291,6 @@ Pues trato de marcarlo como ocupado en mi cuaderno, pero si estoy fuera de casa 
 }
 
 
-% =============================== PÁGINA 3 ===============================
 
 \clearpage
 
@@ -253,7 +353,6 @@ Entiendo. Además de los pagos, imagino que a veces se presentan inconvenientes 
 }
 
 
-% =============================== PÁGINA 4 ===============================
 
 \clearpage
 
@@ -318,7 +417,6 @@ Bueno, principalmente está la puerta principal, las cerraduras de los cuartos y
 }
 
 
-% =============================== PÁGINA 5 ===============================
 
 \clearpage
 
@@ -356,7 +454,7 @@ Más o menos comparo lo que he visto que cobran por la zona y miro qué incluye 
 \subsection*{Despedida — aproximadamente 1 minuto}
 
 \habla{Alvia}{
-Listo Chalacan, Entonces gracias por explicarlo con tus palabras estuvo bien para ser una practica jaja. En fin para cerrar, lo que más se repite es que hoy manejas la información en varios lugares: publicaciones, mensajes, cuaderno y Excel. También sabemos que te cuesta llevar pagos, saber qué habitaciones están disponibles y registrar novedades. ¿Ese resumen podria representar lo que quisiste decir de pronto?
+Listo, Chalacan. Entonces, gracias por explicarlo con tus palabras, estuvo bien para ser una práctica. Para cerrar, lo que más se repite es que hoy manejas la información en varios lugares: publicaciones, mensajes, cuaderno y Excel. También sabemos que te cuesta llevar pagos, saber qué habitaciones están disponibles y registrar novedades. ¿Ese resumen podría representar lo que quisiste decir de pronto?
 }
 
 \habla{Chalacan}{
@@ -364,22 +462,154 @@ Sí, así mismo. Yo diría que lo principal es organizar todo, porque en un cuad
 }
 
 \habla{Alvia}{
-Listo en ese caso, muchas gracias por participar. Con esto terminamos el ensayo asi que nos vemos.
+Listo en ese caso, muchas gracias por participar. Con esto terminamos el ensayo, así que nos vemos.
 }
 
 
-% =============================================================================
-% NOTAS FINALES
-% =============================================================================
 
-\subsection*{Notas de uso}
+% =============================== MAPA DE EMPATÍA ===============================
+
+\clearpage
+
+\section*{4. Mapa de empatía del propietario}
+
+Usuario principal: propietario que arrienda pocos cuartos a estudiantes. La Figura~\ref{fig:mapa} es el mapa del equipo, y la Tabla~\ref{tab:traza} indica en qué pregunta del ensayo se apoya cada elemento.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\includegraphics[width=0.78\linewidth]{figuras/mapa-empatia.jpeg}}
+\caption{Mapa de empatía del propietario (Fabro-Arriendos).}
+\label{fig:mapa}
+\end{figure}
+
+\subsection*{Trazabilidad del mapa con el ensayo}
+
+``Directo'' significa que el ensayo lo dice. ``Parcial'' significa que el ensayo dice una parte. ``Inferencia'' significa que el ensayo no lo dice; es una propuesta del equipo por confirmar con propietarios reales en el trabajo de campo del PFC.
+
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{6.4cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{5.6cm}}
+\caption{Trazabilidad entre el mapa de empatía y el registro del ensayo.}\label{tab:traza}\\
+\toprule
+\textbf{Cuadrante} & \textbf{Elemento del mapa} & \textbf{Pregunta} & \textbf{Respaldo}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Cuadrante} & \textbf{Elemento del mapa} & \textbf{Pregunta} & \textbf{Respaldo}\\
+\midrule
+\endhead
+Piensa y siente & Quiere ingresos estables por su inmueble & P01 & Parcial: el ensayo habla de un ingreso «extra»\\
+ & Desea cuidar su propiedad y encontrar inquilinos responsables & P04, P12 & Parcial\\
+ & Le preocupa que existan problemas durante el arriendo & P09, P11 & Directo\\
+\midrule
+Oye & Recomendaciones de familiares, conocidos y otros propietarios & P02 & Parcial: los conocidos ayudan a compartir; «otros propietarios» no aparece\\
+ & Experiencias sobre atrasos, daños o conflictos & --- & Inferencia\\
+ & Consejos sobre precios y condiciones & P16 & Parcial: compara lo que ve en la zona\\
+\midrule
+Ve & Anuncios de propiedades en distintos medios & P02 & Parcial: menciona grupos donde preguntan por cuartos\\
+ & Otras ofertas que compiten por inquilinos & P16 & Parcial\\
+ & Dificultad para organizar la información & P03, P05, P15 & Directo\\
+\midrule
+Dice y hace & Publica la propiedad y responde consultas & P02, P03 & Directo\\
+ & Coordina visitas y explica precios, servicios y reglas & P03 & Directo\\
+ & Acuerda pagos y atiende novedades & P03, P05, P11 & Directo\\
+\midrule
+Dolores & Dificultad para filtrar interesados confiables & P12 & Directo: no tiene método formal\\
+ & Riesgo de atrasos, daños o incumplimiento & P08, P09, P11 & Directo\\
+ & Comunicación desorganizada y poco control de contratos y pagos & P03, P05, P15 & Directo\\
+\midrule
+Necesidades & Publicar propiedades de forma sencilla & P02, P14 & Directo\\
+ & Organizar solicitudes y datos de interesados & P03 & Directo\\
+ & Llevar registros de pagos, contratos y reportes de novedades & P05, P06, P11 & Directo\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+% =============================== PROBLEMA ===============================
+
+\section*{5. Definición del problema}
+
+Propuesta del equipo, por confirmar con propietarios reales.
+
+\textbf{Usuario.} Propietario que arrienda pocos cuartos a estudiantes foráneos y los administra por su cuenta.
+
+\textbf{Necesidad.} Saber en todo momento qué cuartos están libres, quién pagó y qué novedades hay en su inmueble, sin buscar entre mensajes, un cuaderno y una hoja de cálculo.
+
+\textbf{Lo que se observó en el ensayo.}
+\begin{itemize}
+\item La información está repartida entre publicaciones, WhatsApp, un cuaderno y una hoja de cálculo que no siempre se actualiza el mismo día (P05, P15).
+\item Repite las mismas respuestas a cada interesado y a veces omite un detalle, como si la luz se paga aparte (P02).
+\item Puede ofrecer el mismo cuarto a dos personas porque el cuaderno no siempre está a mano (P03).
+\item No sabe con exactitud cuánto gana después de gastos (P06).
+\item Se entera tarde de daños y escucha versiones distintas de un conflicto (P11).
+\item No tiene un método para conocer el historial de pagos de un postulante y prefiere no averiguar cosas privadas (P12).
+\end{itemize}
+
+\begin{center}
+\fbox{\parbox{0.9\linewidth}{\centering\textbf{Pregunta guía:}\\[3pt]\bfseries ¿Cómo podríamos ayudar a un propietario que arrienda pocos cuartos a estudiantes a saber en todo momento qué cuartos están libres, quién ha pagado y qué ha pasado en su casa, sin depender de su memoria, un cuaderno y mensajes dispersos?}}
+\end{center}
+
+La pregunta describe la necesidad del propietario y no propone una solución. Las ideas de solución quedan para la fase de ideación.
+
+% =============================== AJUSTES ===============================
+
+\section*{6. Ajustes al guion}
+
+Preguntas del ensayo que fallaron, con el defecto y su versión corregida. G indica la pregunta del guion corregido de la sección 1.
+
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.0cm}>{\raggedright\arraybackslash}p{6.4cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{4.6cm}}
+\caption{Preguntas defectuosas del ensayo y su corrección.}\label{tab:ajustes}\\
+\toprule
+\textbf{N.º} & \textbf{Pregunta del ensayo} & \textbf{Defecto} & \textbf{Versión corregida}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{N.º} & \textbf{Pregunta del ensayo} & \textbf{Defecto} & \textbf{Versión corregida}\\
+\midrule
+\endhead
+P01 & ¿Qué te motivó a empezar a alquilar y qué espacios ofreces ahora? & Doble & G1, una sola pregunta; la motivación pasa a sondeo\\
+P04 & ¿Cómo haces el acuerdo y qué cosas te parece importante dejar claras? & Doble & G4, con un sondeo\\
+P05 & ¿Cómo registras quién pagó, quién se atrasó y cuánto entra cada mes? & Triple & G5, solo el registro de pagos\\
+P07 & ¿Cómo cobran y dividen agua, luz e internet? & Doble & G7, solo el cobro\\
+P08 & ¿Qué te pasa económicamente si alguien deja el cuarto de repente? & Hipotética y abstracta & G8, pide un caso vivido\\
+P09 & ¿Qué conductas de algunos inquilinos te han causado problemas? & Pide generalizar y induce a hablar mal & G9, un caso concreto sin nombres\\
+P10 & ¿Notas alguna señal cuando un inquilino piensa en irse? & Cerrada (sí o no) y presupone señales & Se retira del guion\\
+P12 & ¿Cómo verificas si alguien ha tenido problemas de pago o convivencia? & Presupone que verifica y pide dos temas & G11, con «si lo hace»\\
+P13 & ¿Qué medidas de seguridad tienes y qué problemas has encontrado con ellas? & Doble & G12, solo las medidas\\
+P14 & ¿Qué tan difícil es conseguir otro inquilino si alguien desocupa a mitad de semestre? & Inductiva y cerrada por escala & Se retira del guion\\
+P16 & ¿Cómo decides cuánto cobrar y qué hace que cambie ese precio? & Doble & G14, solo cómo decide\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\textbf{Notas.}
+\begin{itemize}
+\item Las preguntas proceden de la sección «Propietarios» del borrador del compañero Erick Alvia para el proyecto Fabro-Arriendos, que tiene 22 preguntas.
+\item En el borrador, la pregunta 19 dice «nuevos propietarios». En el ensayo se interpretó como «nuevos inquilinos» (P14), porque se refiere a reemplazar a un estudiante que desocupa.
+\item Tras los ajustes, el guion pasa de 16 a 14 preguntas, dentro del rango de 12 a 15 que pide la guía.
+\end{itemize}
+
+% =============================== IA ===============================
+
+\section*{7. Declaración de uso de inteligencia artificial}
 
 \begin{itemize}
-
-\item Las 16 preguntas proceden de los cuatro bloques de la sección ``Propietarios'' del documento proporcionado por el compañero Erick Alvia en base a su proyecto académico Fabro-Arriendos. La fuente contiene 22 preguntas en esa sección.
-
-\item La pregunta 19 se adaptó solo para claridad: donde en el documento dice ``nuevos propietarios'' se interpreta ``nuevos inquilinos'' en el contexto de reemplazar a un estudiante que desocupa.
-
+\item \textbf{Herramienta:} Claude, de Anthropic, en su aplicación de chat. \textbf{Versión:} Claude Sonnet 5.5, según se indicaba en la interfaz.
+\item \textbf{Propósito:}
+  \begin{itemize}
+  \item revisar el borrador de preguntas contra los criterios de pregunta abierta, neutral y simple, y proponer reformulaciones;
+  \item corregir erratas del registro del ensayo, sin cambiar su contenido;
+  \item armar la estructura del documento en LaTeX: inclusión de la figura, tabla de trazabilidad y tabla de ajustes;
+  \item redactar un borrador de la definición del problema y del protocolo de consentimiento;
+  \item sugerir puntos clave para el personaje del propietario en la simulación.
+  \end{itemize}
+\item \textbf{Verificación:} se compiló el documento desde cero siguiendo el \texttt{Readme.md}; se contrastó cada elemento del mapa de empatía con el texto del registro del ensayo, citando el número de pregunta; las referencias se tomaron de la guía del docente y se copiaron tal cual figuran en ella.
+\item \textbf{Alcance:} la herramienta no entrevistó a nadie ni generó datos de campo. El ensayo es una simulación y está marcada como tal en todo el documento.
 \end{itemize}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
